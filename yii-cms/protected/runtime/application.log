@@ -1,0 +1,192 @@
+2015/07/13 21:18:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'CMS.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2015/07/13 21:26:26 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S02]: Base table or view not found: 1051 Unknown table 'tbl_category'. The SQL statement executed was: DROP TABLE `tbl_category`.
+2015/07/13 21:26:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1051 Unknown table 'tbl_category'. The SQL statement executed was: DROP TABLE `tbl_category`' in /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php(1375): CDbCommand->execute()
+#1 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(275): CDbCommand->dropTable('tbl_category')
+#2 /var/www/github_projects/yii-simple-cms/yii-cms/protected/migrations/m150713_105947_add_category_table.php(25): CDbMigration->dropTable('tbl_category')
+#3 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(440): m150713_105947_add_category_table->down()
+#4 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(145): MigrateCommand->migrateDown('m150713_105947_...')
+#5 [internal function]: MigrateCommand->actionDown(Array)
+#6 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#11 /var/www/github_projects/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/github...')
+#12 /var/www/github_projects/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/github...')
+#13 {main}
+---
+2015/07/13 21:26:45 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'CMS.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2015/07/13 21:37:33 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'article_id' in 'field list'. The SQL statement executed was: INSERT INTO `tbl_category` (`article_id`, `category_id`, `create_time`, `update_time`) VALUES (:article_id, :category_id, :create_time, :update_time).
+2015/07/13 21:37:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'article_id' in 'field list'. The SQL statement executed was: INSERT INTO `tbl_category` (`article_id`, `category_id`, `create_time`, `update_time`) VALUES (:article_id, :category_id, :create_time, :update_time)' in /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php(1278): CDbCommand->execute(Array)
+#1 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(178): CDbCommand->insert('tbl_category', Array)
+#2 /var/www/github_projects/yii-simple-cms/yii-cms/protected/migrations/m150713_182938_add_article_category_table.php(20): CDbMigration->insert('tbl_category', Array)
+#3 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(415): m150713_182938_add_article_category_table->up()
+#4 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150713_182938_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#11 /var/www/github_projects/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/github...')
+#12 /var/www/github_projects/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/github...')
+#13 {main}
+---
+2015/07/13 21:38:06 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_article_category' already exists. The SQL statement executed was: CREATE TABLE `tbl_article_category` (
+	`article_id` int NOT NULL,
+	`category_id` int NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (article_id,category_id)
+) ENGINE=InnoDB CHARSET=utf8.
+2015/07/13 21:38:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_article_category' already exists. The SQL statement executed was: CREATE TABLE `tbl_article_category` (
+	`article_id` int NOT NULL,
+	`category_id` int NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (article_id,category_id)
+) ENGINE=InnoDB CHARSET=utf8' in /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php(1352): CDbCommand->execute()
+#1 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(250): CDbCommand->createTable('tbl_article_cat...', Array, 'ENGINE=InnoDB C...')
+#2 /var/www/github_projects/yii-simple-cms/yii-cms/protected/migrations/m150713_182938_add_article_category_table.php(13): CDbMigration->createTable('tbl_article_cat...', Array, 'ENGINE=InnoDB C...')
+#3 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(415): m150713_182938_add_article_category_table->up()
+#4 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150713_182938_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#11 /var/www/github_projects/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/github...')
+#12 /var/www/github_projects/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/github...')
+#13 {main}
+---
+2015/07/13 21:39:00 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_article' already exists. The SQL statement executed was: CREATE TABLE `tbl_article` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`title` varchar(255) NOT NULL,
+	`body` text NOT NULL,
+	`image` varchar(150) NOT NULL,
+	`published` tinyint(1) NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8.
+2015/07/13 21:39:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_article' already exists. The SQL statement executed was: CREATE TABLE `tbl_article` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`title` varchar(255) NOT NULL,
+	`body` text NOT NULL,
+	`image` varchar(150) NOT NULL,
+	`published` tinyint(1) NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8' in /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php(1352): CDbCommand->execute()
+#1 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(250): CDbCommand->createTable('tbl_article', Array, 'ENGINE=InnoDB C...')
+#2 /var/www/github_projects/yii-simple-cms/yii-cms/protected/migrations/m150713_095015_add_article_table.php(16): CDbMigration->createTable('tbl_article', Array, 'ENGINE=InnoDB C...')
+#3 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(415): m150713_095015_add_article_table->up()
+#4 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150713_095015_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#11 /var/www/github_projects/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/github...')
+#12 /var/www/github_projects/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/github...')
+#13 {main}
+---
+2015/07/13 21:41:02 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_article' already exists. The SQL statement executed was: CREATE TABLE `tbl_article` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`title` varchar(255) NOT NULL,
+	`body` text NOT NULL,
+	`image` varchar(150) NOT NULL,
+	`published` tinyint(1) NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8.
+2015/07/13 21:41:02 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_article' already exists. The SQL statement executed was: CREATE TABLE `tbl_article` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`title` varchar(255) NOT NULL,
+	`body` text NOT NULL,
+	`image` varchar(150) NOT NULL,
+	`published` tinyint(1) NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8' in /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php(1352): CDbCommand->execute()
+#1 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(250): CDbCommand->createTable('tbl_article', Array, 'ENGINE=InnoDB C...')
+#2 /var/www/github_projects/yii-simple-cms/yii-cms/protected/migrations/m150713_095015_add_article_table.php(16): CDbMigration->createTable('tbl_article', Array, 'ENGINE=InnoDB C...')
+#3 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(415): m150713_095015_add_article_table->up()
+#4 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150713_095015_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#11 /var/www/github_projects/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/github...')
+#12 /var/www/github_projects/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/github...')
+#13 {main}
+---
+2015/07/13 21:41:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'CMS.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2015/07/13 21:42:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'CMS.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2015/07/13 21:49:02 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'CMS.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2015/07/13 21:49:04 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1005 Can't create table 'CMS.#sql-28f2_13b' (errno: 150). The SQL statement executed was: ALTER TABLE `tbl_article_category` ADD CONSTRAINT `fk1` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`) ON DELETE CASCADE ON UPDATE CASCADE.
+2015/07/13 21:49:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1005 Can't create table 'CMS.#sql-28f2_13b' (errno: 150). The SQL statement executed was: ALTER TABLE `tbl_article_category` ADD CONSTRAINT `fk1` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`) ON DELETE CASCADE ON UPDATE CASCADE' in /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php(1463): CDbCommand->execute()
+#1 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(366): CDbCommand->addForeignKey('fk1', 'tbl_article_cat...', 'article_id', 'article', 'id', 'CASCADE', 'CASCADE')
+#2 /var/www/github_projects/yii-simple-cms/yii-cms/protected/migrations/m150713_182938_add_article_category_table.php(14): CDbMigration->addForeignKey('fk1', 'tbl_article_cat...', 'article_id', 'article', 'id', 'CASCADE', 'CASCADE')
+#3 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(415): m150713_182938_add_article_category_table->up()
+#4 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150713_182938_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#11 /var/www/github_projects/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/github...')
+#12 /var/www/github_projects/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/github...')
+#13 {main}
+---
+2015/07/13 21:51:07 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_article_category' already exists. The SQL statement executed was: CREATE TABLE `tbl_article_category` (
+	`article_id` int UNSIGNED NOT NULL,
+	`category_id` int UNSIGNED NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (article_id,category_id)
+) ENGINE=InnoDB CHARSET=utf8.
+2015/07/13 21:51:07 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_article_category' already exists. The SQL statement executed was: CREATE TABLE `tbl_article_category` (
+	`article_id` int UNSIGNED NOT NULL,
+	`category_id` int UNSIGNED NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (article_id,category_id)
+) ENGINE=InnoDB CHARSET=utf8' in /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php(1352): CDbCommand->execute()
+#1 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(250): CDbCommand->createTable('tbl_article_cat...', Array, 'ENGINE=InnoDB C...')
+#2 /var/www/github_projects/yii-simple-cms/yii-cms/protected/migrations/m150713_182938_add_article_category_table.php(13): CDbMigration->createTable('tbl_article_cat...', Array, 'ENGINE=InnoDB C...')
+#3 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(415): m150713_182938_add_article_category_table->up()
+#4 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150713_182938_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /var/www/github_projects/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#11 /var/www/github_projects/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/github...')
+#12 /var/www/github_projects/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/github...')
+#13 {main}
+---
+2015/07/13 21:51:27 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'CMS.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
