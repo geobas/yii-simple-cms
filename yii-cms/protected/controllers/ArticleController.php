@@ -88,6 +88,7 @@ class ArticleController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
+		$model->category = ArticleCategory::model()->findByAttributes(array('article_id'=>$id))->category_id;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);

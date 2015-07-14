@@ -130,6 +130,7 @@ class Article extends CActiveRecord
 
 	/**
 	 * Returns all article categories
+	 * @deprecated
 	 * @return array array of categories
 	 */
 	public function getCategoryOptions()

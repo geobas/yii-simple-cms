@@ -27,7 +27,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'category'); ?>
-		<?php echo $form->dropDownList($model,'category', $model->getCategoryOptions()); ?>
+		<?php //echo $form->dropDownList($model,'category', $model->getCategoryOptions()); ?>
+		<?php echo $form->dropDownList(
+								$model,
+								'category', 
+								CHtml::listData(Category::model()->findAll(array('select' => 'id, title')), 'id', 'title'),
+								array('multiple'=>'true', 'options' => array($model->category => array('selected' => true)))
+						  ); ?>
 		<?php echo $form->error($model,'category'); ?>
 	</div>	
 
