@@ -25,12 +25,12 @@
 		<?php echo $form->error($model,'title'); ?>
 	</div>
 
-<!-- 	<div class="row">
-		<?php //echo $form->labelEx($model,'category'); ?>
-		<?php //echo $form->dropDownList($model,'category', $model->getCategoryOptions()); ?>
-		<?php //echo $form->error($model,'category'); ?>
+	<div class="row">
+		<?php echo $form->labelEx($model,'category'); ?>
+		<?php echo $form->dropDownList($model,'category', $model->getCategoryOptions()); ?>
+		<?php echo $form->error($model,'category'); ?>
 	</div>	
- -->
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'body'); ?>
 		<?php echo $form->textArea($model,'body',array('rows'=>6, 'cols'=>50)); ?>

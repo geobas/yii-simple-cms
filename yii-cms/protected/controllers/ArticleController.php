@@ -3,11 +3,6 @@
 class ArticleController extends Controller
 {
 	/**
-	 * @var public property containing the associated Category model instance.
-	 */
-	// public $category = null;
-
-	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
@@ -67,8 +62,7 @@ class ArticleController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Article;
-		// $model->category=$this->category;
+		$model=new Article('create');				
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -76,6 +70,7 @@ class ArticleController extends Controller
 		if(isset($_POST['Article']))
 		{
 			$model->attributes=$_POST['Article'];
+			$model->category=$_POST['Article']['category'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

@@ -12,11 +12,19 @@ class m150713_105947_add_category_table extends CDbMigration
 				'PRIMARY KEY (id)'
 			), 'ENGINE=InnoDB CHARSET=utf8');	
 
-	    $this->insert('tbl_category', array(
-		        'id' => '1',
-		        'title' => 'Dummy category title',
-		        'create_time' => date('Y-m-d H:i:s'),
-		        'update_time' => date('Y-m-d H:i:s')
+	    $this->insertMultiple('tbl_category', array(
+	    		array(
+			        'id' => '1',
+			        'title' => 'Dummy category title',
+			        'create_time' => date('Y-m-d H:i:s'),
+			        'update_time' => date('Y-m-d H:i:s')
+			    ),
+		        array(
+		        	'id' => '2',
+			        'title' => 'Dummy category title #2',
+			        'create_time' => date('Y-m-d H:i:s'),
+			        'update_time' => date('Y-m-d H:i:s')
+		        )		        
 	        ));				
 	}
 

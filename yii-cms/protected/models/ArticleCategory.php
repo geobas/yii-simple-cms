@@ -1,26 +1,48 @@
 <?php
 
 /**
- * This is the model class for table "tbl_category".
+ * This is the model class for table "tbl_article_category".
  *
- * The followings are the available columns in table 'tbl_category':
- * @property string $id
- * @property string $title
+ * The followings are the available columns in table 'tbl_article_category':
+ * @property string $article_id
+ * @property string $category_id
  * @property string $create_time
  * @property string $update_time
- *
- * The followings are the available model relations:
- * @property Article[] $articles
  */
-class Category extends CActiveRecord
+class ArticleCategory extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_category';
+		return 'tbl_article_category';
 	}
+
+	/**
+	 * Creates a new model.
+	 * @param integer $article_id article's id for creation
+	 * @param integer $category_id category's id for creation
+	 */
+    public static function saveArticleCategory($article_id, $category_id)
+    {
+        $criteria=new CDbCriteria;
+        $criteria->condition='article_id=:article_id and category_id=:category_id';
+        $criteria->params=array(':article_id'=>$article_id, ':category_id'=>$category_id);
+        
+        $articleCategory = self::model()->find($criteria);
+        if ( $articleCategory===null ) // check if that article and category exist
+        {
+            $articleCategory = new self;
+            $articleCategory->attributes = array(
+            									'article_id'=>$article_id,
+	            								'category_id'=>$category_id,
+            									'create_time'=>date('Y-m-d H:i:s'),
+            									'update_time'=>date('Y-m-d H:i:s'),
+            								);
+            $articleCategory->save();
+        }
+    }
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -30,23 +52,11 @@ class Category extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, create_time, update_time', 'required'),
-			array('title', 'length', 'max'=>150),
+			array('article_id, category_id, create_time, update_time', 'required'),
+			array('article_id, category_id', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, create_time, update_time', 'safe', 'on'=>'search'),
-		);
-	}
-
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-			'articles' => array(self::MANY_MANY, 'Article', 'tbl_article_category(category_id, article_id)'),
+			array('article_id, category_id, create_time, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,8 +66,8 @@ class Category extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'title' => 'Title',
+			'article_id' => 'Article',
+			'category_id' => 'Category',
 			'create_time' => 'Create Time',
 			'update_time' => 'Update Time',
 		);
@@ -81,8 +91,8 @@ class Category extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id,true);
-		$criteria->compare('title',$this->title,true);
+		$criteria->compare('article_id',$this->article_id,true);
+		$criteria->compare('category_id',$this->category_id,true);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('update_time',$this->update_time,true);
 
@@ -95,7 +105,7 @@ class Category extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Category the static model class
+	 * @return ArticleCategory the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

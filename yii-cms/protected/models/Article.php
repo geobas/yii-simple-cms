@@ -18,9 +18,9 @@
 class Article extends CActiveRecord
 {
 	/**
-	 * @var private property containing the associated Category model instance.
+	 * @var property containing category_id as input from the view 
 	 */
-	private $category = null;
+    public $category = null;
 
 	/**
 	 * @return string the associated database table name
@@ -31,6 +31,15 @@ class Article extends CActiveRecord
 	}
 
 	/**
+	 * Save article and category to tbl_article_category
+	 */
+    public function afterSave()
+    {    	
+        parent::afterSave();
+        ArticleCategory::saveArticleCategory($this->id, $this->category);
+    }
+
+	/**
 	 * @return array validation rules for model attributes.
 	 */
 	public function rules()
@@ -38,10 +47,11 @@ class Article extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, category_id, body, image, published, create_time, update_time', 'required'),
+			array('title, body, image, published, create_time, update_time', 'required'),
 			array('published', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>255),
 			array('image', 'length', 'max'=>150),
+			array('category', 'safe', 'on' => 'create'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, title, body, image, published, create_time, update_time', 'safe', 'on'=>'search'),
