@@ -1,2 +1,4 @@
 #ignore vendor
 vendor/
+#ignore assets
+yii-cms/assets/
