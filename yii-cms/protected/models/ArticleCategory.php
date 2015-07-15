@@ -31,14 +31,18 @@ class ArticleCategory extends CActiveRecord
         $criteria->params=array(':article_id'=>$article_id, ':category_id'=>$category_id);
         
         $articleCategory = self::model()->find($criteria);
-        if ( $articleCategory===null ) // check if that article and category exist
+        if ( $articleCategory===null ) // create articleCategory
         {
+        	// delete previous record
+        	self::model()->deleteAll('article_id = ' . $article_id);
+
+        	// add new one
             $articleCategory = new self;
             $articleCategory->attributes = array(
             									'article_id'=>$article_id,
 	            								'category_id'=>$category_id,
             									'create_time'=>date('Y-m-d H:i:s'),
-            									'update_time'=>date('Y-m-d H:i:s'),
+            									'update_time'=>'0000-00-00 00:00:00',
             								);
             $articleCategory->save();
         }

@@ -71,6 +71,7 @@ class ArticleController extends Controller
 		{
 			$model->attributes=$_POST['Article'];
 			$model->category=$_POST['Article']['category'];
+			$model->create_time=date('Y-m-d H:i:s');
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -96,6 +97,8 @@ class ArticleController extends Controller
 		if(isset($_POST['Article']))
 		{
 			$model->attributes=$_POST['Article'];
+			$model->category=$_POST['Article']['category'];
+			$model->update_time=date('Y-m-d H:i:s');			
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

@@ -50,7 +50,7 @@ class Article extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, body, image, published, create_time, update_time', 'required'),
+			array('title, body, image, published', 'required'),
 			array('published', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>255),
 			array('image', 'length', 'max'=>150),
@@ -158,8 +158,8 @@ class Article extends CActiveRecord
 	public function getPublishedOptions()
 	{
 		return array(
-			self::ENABLED => 'Enabled',
-			self::DISABLED => 'Disabled',
+			self::ENABLED => 'Yes',
+			self::DISABLED => 'No',
 		);
 	}
 }
