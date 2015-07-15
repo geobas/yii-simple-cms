@@ -32,7 +32,7 @@
 								$model,
 								'category', 
 								CHtml::listData(Category::model()->findAll(array('select' => 'id, title')), 'id', 'title'),
-								array('multiple'=>'true', 'options' => array($model->category => array('selected' => true)))
+								array(/*'multiple'=>'false', */'options' => array($model->category => array('selected' => true)))
 						  ); ?>
 		<?php echo $form->error($model,'category'); ?>
 	</div>	
@@ -51,7 +51,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'published'); ?>
-		<?php echo $form->textField($model,'published'); ?>
+		<?php echo $form->dropDownList($model,'published', $model->getPublishedOptions()); ?>
 		<?php echo $form->error($model,'published'); ?>
 	</div>
 

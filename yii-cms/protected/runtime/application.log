@@ -1160,3 +1160,43 @@ Stack trace:
 #16 {main}
 REQUEST_URI=/github_projects/yii-simple-cms/yii-cms/article/update/3
 ---
+2015/07/15 14:50:05 [error] [php] Undefined offset: 0 (/var/www/yii-simple-cms/yii-cms/protected/views/article/_view.php:13)
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/zii/widgets/CListView.php(291): ArticleController->renderFile()
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/zii/widgets/CBaseListView.php(181): CListView->renderItems()
+#2 unknown(0): CListView->renderSection()
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/zii/widgets/CBaseListView.php(164): preg_replace_callback()
+#4 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/zii/widgets/CBaseListView.php(149): CListView->renderContent()
+#5 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CBaseController.php(181): CListView->run()
+#6 /var/www/yii-simple-cms/yii-cms/protected/views/article/index.php(20): ArticleController->widget()
+#7 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CBaseController.php(126): require()
+#8 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CBaseController.php(95): ArticleController->renderInternal()
+#9 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php(869): ArticleController->renderFile()
+#10 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php(782): ArticleController->renderPartial()
+#11 /var/www/yii-simple-cms/yii-cms/protected/controllers/ArticleController.php(130): ArticleController->render()
+#12 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/actions/CInlineAction.php(49): ArticleController->actionIndex()
+#13 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#14 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(133): ArticleController->runAction()
+#15 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#16 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#17 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/filters/CInlineFilter.php(58): ArticleController->filterAccessControl()
+#18 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#19 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php(291): CFilterChain->run()
+#20 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#21 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#22 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#23 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#24 /var/www/yii-simple-cms/yii-cms/index.php(13): CWebApplication->run()
+REQUEST_URI=/yii-simple-cms/yii-cms/article/
+in /var/www/yii-simple-cms/yii-cms/protected/views/article/_view.php (13)
+in /var/www/yii-simple-cms/yii-cms/protected/views/article/index.php (20)
+in /var/www/yii-simple-cms/yii-cms/protected/controllers/ArticleController.php (130)
+2015/07/15 15:02:31 [warning] [application] Failed to set unsafe attribute "category" of "Article".
+in /var/www/yii-simple-cms/yii-cms/protected/controllers/ArticleController.php (98)
+in /var/www/yii-simple-cms/yii-cms/index.php (13)
+2015/07/15 15:02:52 [warning] [application] Failed to set unsafe attribute "category" of "Article".
+in /var/www/yii-simple-cms/yii-cms/protected/controllers/ArticleController.php (98)
+in /var/www/yii-simple-cms/yii-cms/index.php (13)
+2015/07/15 15:03:02 [warning] [application] Failed to set unsafe attribute "category" of "Article".
+in /var/www/yii-simple-cms/yii-cms/protected/controllers/ArticleController.php (98)
+in /var/www/yii-simple-cms/yii-cms/index.php (13)

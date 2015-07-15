@@ -17,6 +17,9 @@
  */
 class Article extends CActiveRecord
 {
+	const DISABLED=0;
+	const ENABLED=1;
+
 	/**
 	 * @var property containing category_id as input from the view 
 	 */
@@ -146,5 +149,17 @@ class Article extends CActiveRecord
 		}
 
 		return $options;
+	}
+
+	/**
+	 * Returns all article publishing options
+	 * @return array publishing options
+	 */
+	public function getPublishedOptions()
+	{
+		return array(
+			self::ENABLED => 'Enabled',
+			self::DISABLED => 'Disabled',
+		);
 	}
 }
