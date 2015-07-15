@@ -11,8 +11,8 @@ class m150713_182938_add_article_category_table extends CDbMigration
 				'update_time' => 'datetime NOT NULL',
 				'PRIMARY KEY (article_id,category_id)'
 			), 'ENGINE=InnoDB CHARSET=utf8');
-		$this->addForeignKey('fk1', 'tbl_article_category', 'article_id', 'tbl_article', 'id','RESTRICT','CASCADE');
-		$this->addForeignKey('fk2', 'tbl_article_category', 'category_id', 'tbl_category', 'id','RESTRICT','CASCADE');
+		$this->addForeignKey('fk1', 'tbl_article_category', 'article_id', 'tbl_article', 'id','CASCADE','CASCADE');
+		$this->addForeignKey('fk2', 'tbl_article_category', 'category_id', 'tbl_category', 'id','CASCADE','CASCADE');
 
 	    $this->insert('tbl_article_category', array(
 		        'article_id' => '1',
