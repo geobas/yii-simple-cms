@@ -3,6 +3,10 @@
 /* @var $model LoginForm */
 /* @var $form CActiveForm  */
 
+// if user is already logged in then redirect to admin's module index
+if ( !Yii::app()->user->isGuest )
+	Yii::app()->request->redirect('admin/default/index');
+
 $this->pageTitle=Yii::app()->name . ' - Login';
 $this->breadcrumbs=array(
 	'Login',

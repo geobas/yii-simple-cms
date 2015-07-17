@@ -1501,3 +1501,184 @@ REQUEST_URI=/yii-simple-cms/yii-cms/article
 in /var/www/yii-simple-cms/yii-cms/protected/views/article/_view.php (13)
 in /var/www/yii-simple-cms/yii-cms/protected/views/article/index.php (20)
 in /var/www/yii-simple-cms/yii-cms/protected/controllers/ArticleController.php (133)
+2015/07/17 16:50:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/admin
+---
+2015/07/17 16:50:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/admin
+---
+2015/07/17 16:51:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "category".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('category')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/category
+---
+2015/07/17 16:51:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "category".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('category')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/category
+---
+2015/07/17 16:51:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "dfdf".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php(270): CController->missingAction('dfdf')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('dfdf')
+#2 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/category/...')
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#4 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/admin/category/dfdf
+---
+2015/07/17 16:51:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "category/create".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('category/create')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/category/create
+HTTP_REFERER=http://localhost/yii-simple-cms/yii-cms/admin/default/login
+---
+2015/07/17 16:58:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "default/index".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('default/index')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/default/index
+---
+2015/07/17 16:58:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "admin".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php(270): CController->missingAction('admin')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#2 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/default/a...')
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#4 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/admin/default/admin/default/index
+---
+2015/07/17 16:59:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "admin".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php(270): CController->missingAction('admin')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#2 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/default/a...')
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#4 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/admin/default/admin/default/index
+---
+2015/07/17 16:59:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/index".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/index')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/admin/index
+---
+2015/07/17 16:59:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "admin".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php(270): CController->missingAction('admin')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#2 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/default/a...')
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#4 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/admin/default/admin/index
+---
+2015/07/17 16:59:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "admin".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php(270): CController->missingAction('admin')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#2 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/default/a...')
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#4 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/admin/default/admin/index
+---
+2015/07/17 16:59:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "admin".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CController.php(270): CController->missingAction('admin')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#2 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/default/a...')
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#4 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/admin/default/admin/index
+---
+2015/07/17 17:00:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/admin/index".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/admin/ind...')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/admin/admin/index
+---
+2015/07/17 17:00:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/admin/index".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/admin/ind...')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/admin/admin/index
+---
+2015/07/17 17:00:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/index".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/index')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/admin/index
+---
+2015/07/17 17:00:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/index".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/index')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/admin/index
+---
+2015/07/17 17:00:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "default/login".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('default/login')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/default/login
+---
+2015/07/17 17:01:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('index')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/index
+---
+2015/07/17 17:01:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "default/index".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('default/index')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/default/index
+---
+2015/07/17 17:04:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/admin/default".' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/admin/def...')
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/yii-simple-cms/yii-cms/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii-simple-cms/yii-cms/admin/admin/default
+---
