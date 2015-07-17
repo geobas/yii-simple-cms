@@ -38,9 +38,16 @@
 	</div>	
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'body'); ?>
-		<?php echo $form->textArea($model,'body',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'body'); ?>
+		<?php //echo $form->labelEx($model,'body'); ?>
+		<?php //echo $form->textArea($model,'body',array('rows'=>6, 'cols'=>50)); ?>
+		<?php //echo $form->error($model,'body'); ?>
+		<?php $this->widget('application.extensions.extckeditor.ExtCKEditor', array(
+				'model'=>$model,
+				'attribute'=>'body', // model atribute
+				'language'=>'en', /* default lang, If not declared the language of the project will be used in case of using multiple languages */
+				'editorTemplate'=>'full', // Toolbar settings (full, basic, advanced)
+			  )); 
+		?>		
 	</div>
 
 	<div class="row">
