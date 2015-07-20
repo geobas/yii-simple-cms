@@ -20,6 +20,11 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+	    'bootstrap.behaviors.*',
+	    'bootstrap.components.*',
+	    'bootstrap.form.*',
+	    'bootstrap.helpers.*',
+	    'bootstrap.widgets.*',
 	),
 
 	'modules'=>array(
@@ -79,7 +84,8 @@ return array(
 		),
 
 		'bootstrap' => array(
-		        'class' => 'bootstrap.components.TbApi',
+		        // 'class' => 'bootstrap.components.TbApi',
+		        'class' => '\TbApi',
 		    ),		
 
 	),
