@@ -1,47 +1,63 @@
 <?php
 
 /**
- * This is the model class for table "tbl_article".
+ * This is the model class for table "tbl_user".
  *
- * The followings are the available columns in table 'tbl_article':
+ * The followings are the available columns in table 'tbl_user':
  * @property string $id
- * @property string $title
- * @property string $body
- * @property string $image
- * @property integer $published
+ * @property string $fname
+ * @property string $lname
+ * @property string $username
+ * @property string $password
+ * @property string $email
+ * @property string $last_login_time
  * @property string $create_time
  * @property string $update_time
- *
- * The followings are the available model relations:
- * @property Category[] $categories
  */
-class Article extends CActiveRecord
+class User extends CActiveRecord
 {
-	const DISABLED=0;
-	const ENABLED=1;
-
 	/**
-	 * property containing category_id as input from the view
+	 * property containing password confirmation as input from the view
 	 * @var string
 	 */
-    public $category = null;
+	public $password_repeat;
 
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_article';
+		return 'tbl_user';
 	}
 
 	/**
-	 * Save article and category to tbl_article_category
+	* perform one-way encryption on the password before we store it in the database
+	*/
+	protected function afterValidate()
+	{
+		parent::afterValidate();
+		$this->password = $this->encrypt($this->password);
+	}
+
+	/**
+	 * Encrypt a value 
+	 * @param  string $value the value to encrypt
+	 * @return string encrypted value
 	 */
-    public function afterSave()
-    {    	
-        parent::afterSave();
-        ArticleCategory::saveArticleCategory($this->id, $this->category);
-    }
+	public function encrypt($value)
+	{
+		return base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5(Yii::app()->getParams()->salt), $value, MCRYPT_MODE_CBC, md5(md5(Yii::app()->getParams()->salt))));
+	}
+
+	/**
+	 * Decrypt a value
+	 * @param  string $value the value to decrypt
+	 * @return string decrypted value
+	 */
+	public static function decrypt($value)
+	{
+		return mcrypt_decrypt(MCRYPT_RIJNDAEL_256, md5(Yii::app()->getParams()->salt), base64_decode($text), MCRYPT_MODE_CBC, md5(md5(Yii::app()->getParams()->salt)));		
+	}	
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -51,14 +67,16 @@ class Article extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, body, image, published', 'required'),
-			array('published', 'numerical', 'integerOnly'=>true),
-			array('title', 'length', 'max'=>255),
-			array('image', 'length', 'max'=>150),
-			array('category', 'safe', 'on' => 'create'),
+			array('fname, lname, username, password, email', 'required'),
+			array('fname, username, password, email', 'length', 'max'=>50),
+			array('lname', 'length', 'max'=>70),
+			array('email, username', 'unique'),
+			array('email', 'email'),
+			array('password', 'compare'),
+			array('password_repeat', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, body, image, published, create_time, update_time', 'safe', 'on'=>'search'),
+			array('id, fname, lname, username, password, email, last_login_time, create_time, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -70,7 +88,6 @@ class Article extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'categories' => array(self::MANY_MANY, 'Category', 'tbl_article_category(article_id, category_id)'),
 		);
 	}
 
@@ -81,10 +98,12 @@ class Article extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'body' => 'Body',
-			'image' => 'Image',
-			'published' => 'Published',
+			'fname' => 'Fname',
+			'lname' => 'Lname',
+			'username' => 'Username',
+			'password' => 'Password',
+			'email' => 'Email',
+			'last_login_time' => 'Last Login Time',
 			'create_time' => 'Create Time',
 			'update_time' => 'Update Time',
 		);
@@ -109,10 +128,12 @@ class Article extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
-		$criteria->compare('title',$this->title,true);
-		$criteria->compare('body',$this->body,true);
-		$criteria->compare('image',$this->image,true);
-		$criteria->compare('published',$this->published);
+		$criteria->compare('fname',$this->fname,true);
+		$criteria->compare('lname',$this->lname,true);
+		$criteria->compare('username',$this->username,true);
+		$criteria->compare('password',$this->password,true);
+		$criteria->compare('email',$this->email,true);
+		$criteria->compare('last_login_time',$this->last_login_time,true);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('update_time',$this->update_time,true);
 
@@ -125,42 +146,10 @@ class Article extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Article the static model class
+	 * @return User the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
-	}
-
-	/**
-	 * Returns all article categories
-	 * @deprecated
-	 * @return array array of categories
-	 */
-	public function getCategoryOptions()
-	{
-		// $criteria = new CDbCriteria();
-		// $criteria->select = 'title';
-		$categories = Category::model()->findAll(array('select' => 'id, title'));
-
-		$options = array();
-		foreach ( $categories as $category )
-		{
-			$options[$category['id']] = $category['title'];
-		}
-
-		return $options;
-	}
-
-	/**
-	 * Returns all article publishing options
-	 * @return array publishing options
-	 */
-	public function getPublishedOptions()
-	{
-		return array(
-			self::ENABLED => 'Yes',
-			self::DISABLED => 'No',
-		);
 	}
 }

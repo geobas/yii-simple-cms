@@ -1682,3 +1682,143 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/yii-simple-cms/yii-cms/admin/admin/default
 ---
+2015/07/22 16:29:24 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_user' already exists. The SQL statement executed was: CREATE TABLE `tbl_user` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`fname` varchar(50) NOT NULL,
+	`lname` varchar(70) NOT NULL,
+	`username` varchar(50) NOT NULL,
+	`password` varchar(50) NOT NULL,
+	`email` varchar(50) NOT NULL,
+	`last_login_time` datetime NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8.
+2015/07/22 16:29:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_user' already exists. The SQL statement executed was: CREATE TABLE `tbl_user` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`fname` varchar(50) NOT NULL,
+	`lname` varchar(70) NOT NULL,
+	`username` varchar(50) NOT NULL,
+	`password` varchar(50) NOT NULL,
+	`email` varchar(50) NOT NULL,
+	`last_login_time` datetime NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php(1352): CDbCommand->execute()
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(250): CDbCommand->createTable('tbl_user', Array, 'ENGINE=InnoDB C...')
+#2 /var/www/yii-simple-cms/yii-cms/protected/migrations/m150722_132553_add_user_table.php(18): CDbMigration->createTable('tbl_user', Array, 'ENGINE=InnoDB C...')
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(415): m150722_132553_add_user_table->up()
+#4 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150722_132553_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#11 /var/www/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/yii-si...')
+#12 /var/www/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/yii-si...')
+#13 {main}
+---
+2015/07/22 16:35:39 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_user' already exists. The SQL statement executed was: CREATE TABLE `tbl_user` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`fname` varchar(50) NOT NULL,
+	`lname` varchar(70) NOT NULL,
+	`username` varchar(50) NOT NULL,
+	`password` varchar(50) NOT NULL,
+	`email` varchar(50) NOT NULL,
+	`last_login_time` datetime NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8.
+2015/07/22 16:35:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_user' already exists. The SQL statement executed was: CREATE TABLE `tbl_user` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`fname` varchar(50) NOT NULL,
+	`lname` varchar(70) NOT NULL,
+	`username` varchar(50) NOT NULL,
+	`password` varchar(50) NOT NULL,
+	`email` varchar(50) NOT NULL,
+	`last_login_time` datetime NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php(1352): CDbCommand->execute()
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(250): CDbCommand->createTable('tbl_user', Array, 'ENGINE=InnoDB C...')
+#2 /var/www/yii-simple-cms/yii-cms/protected/migrations/m150722_132553_add_user_table.php(18): CDbMigration->createTable('tbl_user', Array, 'ENGINE=InnoDB C...')
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(415): m150722_132553_add_user_table->up()
+#4 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150722_132553_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#11 /var/www/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/yii-si...')
+#12 /var/www/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/yii-si...')
+#13 {main}
+---
+2015/07/22 16:36:11 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'CMS.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2015/07/22 16:36:13 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'fname' in 'field list'. The SQL statement executed was: INSERT INTO `tbl_article` (`id`, `fname`, `lname`, `username`, `password`, `email`, `last_login_time`, `create_time`, `update_time`) VALUES (:id, :fname, :lname, :username, :password, :email, :last_login_time, :create_time, :update_time).
+2015/07/22 16:36:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'fname' in 'field list'. The SQL statement executed was: INSERT INTO `tbl_article` (`id`, `fname`, `lname`, `username`, `password`, `email`, `last_login_time`, `create_time`, `update_time`) VALUES (:id, :fname, :lname, :username, :password, :email, :last_login_time, :create_time, :update_time)' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php(1278): CDbCommand->execute(Array)
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(178): CDbCommand->insert('tbl_article', Array)
+#2 /var/www/yii-simple-cms/yii-cms/protected/migrations/m150722_132553_add_user_table.php(30): CDbMigration->insert('tbl_article', Array)
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(415): m150722_132553_add_user_table->up()
+#4 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150722_132553_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#11 /var/www/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/yii-si...')
+#12 /var/www/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/yii-si...')
+#13 {main}
+---
+2015/07/22 16:36:52 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_user' already exists. The SQL statement executed was: CREATE TABLE `tbl_user` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`fname` varchar(50) NOT NULL,
+	`lname` varchar(70) NOT NULL,
+	`username` varchar(50) NOT NULL,
+	`password` varchar(50) NOT NULL,
+	`email` varchar(50) NOT NULL,
+	`last_login_time` datetime NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8.
+2015/07/22 16:36:52 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_user' already exists. The SQL statement executed was: CREATE TABLE `tbl_user` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`fname` varchar(50) NOT NULL,
+	`lname` varchar(70) NOT NULL,
+	`username` varchar(50) NOT NULL,
+	`password` varchar(50) NOT NULL,
+	`email` varchar(50) NOT NULL,
+	`last_login_time` datetime NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php(1352): CDbCommand->execute()
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(250): CDbCommand->createTable('tbl_user', Array, 'ENGINE=InnoDB C...')
+#2 /var/www/yii-simple-cms/yii-cms/protected/migrations/m150722_132553_add_user_table.php(18): CDbMigration->createTable('tbl_user', Array, 'ENGINE=InnoDB C...')
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(415): m150722_132553_add_user_table->up()
+#4 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150722_132553_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#11 /var/www/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/yii-si...')
+#12 /var/www/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/yii-si...')
+#13 {main}
+---
+2015/07/22 16:38:16 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'CMS.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
