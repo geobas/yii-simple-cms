@@ -8,26 +8,55 @@
 class UserIdentity extends CUserIdentity
 {
 	/**
-	 * Authenticates a user.
-	 * The example implementation makes sure if the username and password
-	 * are both 'demo'.
-	 * In practical applications, this should be changed to authenticate
-	 * against some persistent user identity storage (e.g. database).
+	 * user's unique ID
+	 * @var int
+	 */
+	private $_id;
+	
+	/**
+	 * Authenticates a user using the User data model.
 	 * @return boolean whether authentication succeeds.
 	 */
 	public function authenticate()
 	{
-		$users=array(
-			// username => password
-			'demo'=>'demo',
-			'admin'=>'admin',
-		);
-		if(!isset($users[$this->username]))
+		$user=User::model()->findByAttributes(array('username'=>$this->username));
+
+		if ( $user===null )
+		{
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		elseif($users[$this->username]!==$this->password)
-			$this->errorCode=self::ERROR_PASSWORD_INVALID;
+		}
 		else
-			$this->errorCode=self::ERROR_NONE;
+		{
+			if ( $user->password!==$user->encrypt($this->password) )
+			{
+				$this->errorCode=self::ERROR_PASSWORD_INVALID;
+			}
+			else
+			{
+				$this->_id = $user->id;
+
+				if ( null===$user->last_login_time ) 
+				{
+					$lastLogin = time();
+				}
+				else
+				{
+					$lastLogin = strtotime($user->last_login_time);
+				}
+				$this->setState('lastLoginTime', $lastLogin); 
+				$this->errorCode=self::ERROR_NONE;
+			}
+		}
+
 		return !$this->errorCode;
+	}
+
+	/**
+	 * return user's unique database ID 
+	 * @return int user's ID
+	 */
+	public function getId()
+	{
+		return $this->_id;
 	}
 }

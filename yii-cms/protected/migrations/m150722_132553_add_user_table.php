@@ -22,7 +22,7 @@ class m150722_132553_add_user_table extends CDbMigration
 				'fname' => 'geo',
 				'lname' => 'bas',
 				'username' => 'admin',
-				'password' => 'admin',
+				'password' => 'IOTa8hi+uvUDysYoSRdzSdXH0clHHV6nmsm5DhfLDVA=',
 				'email' => 'ksenera@yahoo.com',
 				'last_login_time' => date('Y-m-d H:i:s'),
 				'create_time' => date('Y-m-d H:i:s'),
