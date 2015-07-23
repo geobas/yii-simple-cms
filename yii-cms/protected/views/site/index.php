@@ -6,7 +6,13 @@ $this->pageTitle=Yii::app()->name;
 
 <h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
 
-<p><?php if ( isset(Yii::app()->user->lastLoginTime) ) echo 'You last logged in on ' . date( 'l, F d, Y, g:i a', Yii::app()->user->lastLoginTime); ?></p>
+<?php if ( isset(Yii::app()->user->lastLoginTime) ) : ?>
+
+<div class="alert alert-info" role="alert">
+	<?php echo 'You last logged in on ' . date( 'l, F d, Y, g:i a', Yii::app()->user->lastLoginTime); ?>
+</div>
+
+<?php endif; ?>
 
 <p>Congratulations! You have successfully created your Yii application.</p>
 

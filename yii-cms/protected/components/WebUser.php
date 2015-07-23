@@ -20,7 +20,7 @@ class WebUser extends CWebUser
             // Not identified => no rights
             return false;
         }
-        $role = $this->getState("roles");
+        $role = $this->getState('role');
         if ($role === 'admin') {
             return true; // admin role has access to everything
         }
