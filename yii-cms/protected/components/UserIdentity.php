@@ -43,7 +43,8 @@ class UserIdentity extends CUserIdentity
 				{
 					$lastLogin = strtotime($user->last_login_time);
 				}
-				$this->setState('lastLoginTime', $lastLogin); 
+				$this->setState('lastLoginTime', $lastLogin); // store user's last login time to session
+				$this->setState('roles', $user->roles); // store user's role to session
 				$this->errorCode=self::ERROR_NONE;
 			}
 		}
