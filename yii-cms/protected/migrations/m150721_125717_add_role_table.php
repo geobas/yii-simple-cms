@@ -1,6 +1,6 @@
 <?php
 
-class m150723_125717_add_role_table extends CDbMigration
+class m150721_125717_add_role_table extends CDbMigration
 {
 	public function up()
 	{

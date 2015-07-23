@@ -11,13 +11,14 @@ class m150722_132553_add_user_table extends CDbMigration
 				'username' => 'varchar(50) NOT NULL',
 				'password' => 'varchar(50) NOT NULL',
 				'email' => 'varchar(50) NOT NULL',
-				'role' => 'varchar(50) NOT NULL',
+				'role_id' => 'int UNSIGNED NOT NULL',
 				'last_login_time' => 'datetime NOT NULL',
 				'create_time' => 'datetime NOT NULL',
 				'update_time' => 'datetime NOT NULL',
 				'PRIMARY KEY (id)'
-			), 'ENGINE=InnoDB CHARSET=utf8');		
-
+			), 'ENGINE=InnoDB CHARSET=utf8');
+			$this->addForeignKey('fk3', 'tbl_user', 'role_id', 'tbl_role', 'id','CASCADE','CASCADE');
+		
 	    $this->insert('tbl_user', array(
 				'id' => '1',
 				'fname' => 'geo',
@@ -25,7 +26,7 @@ class m150722_132553_add_user_table extends CDbMigration
 				'username' => 'admin',
 				'password' => 'IOTa8hi+uvUDysYoSRdzSdXH0clHHV6nmsm5DhfLDVA=',
 				'email' => 'ksenera@yahoo.com',
-				'role' => 'admin',
+				'role_id' => '1',
 				'last_login_time' => date('Y-m-d H:i:s'),
 				'create_time' => date('Y-m-d H:i:s'),
 				'update_time' => date('Y-m-d H:i:s'),
