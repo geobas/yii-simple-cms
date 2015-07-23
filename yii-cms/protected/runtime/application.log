@@ -1822,3 +1822,189 @@ Stack trace:
 #13 {main}
 ---
 2015/07/22 16:38:16 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'CMS.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2015/07/23 16:00:50 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `tbl_category` (`id`, `create_time`, `update_time`) VALUES (:id_0, :create_time_0, :update_time_0), (:id_1, :create_time_1, :update_time_1).
+2015/07/23 16:00:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `tbl_category` (`id`, `create_time`, `update_time`) VALUES (:id_0, :create_time_0, :update_time_0), (:id_1, :create_time_1, :update_time_1)' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(195): CDbCommand->execute()
+#1 /var/www/yii-simple-cms/yii-cms/protected/migrations/m150723_125717_add_role_table.php(28): CDbMigration->insertMultiple('tbl_category', Array)
+#2 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(415): m150723_125717_add_role_table->up()
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150723_125717_...')
+#4 [internal function]: MigrateCommand->actionUp(Array)
+#5 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#6 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#7 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#8 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#9 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#10 /var/www/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/yii-si...')
+#11 /var/www/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/yii-si...')
+#12 {main}
+---
+2015/07/23 16:01:40 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `tbl_category` (`id`, `create_time`, `update_time`) VALUES (:id_0, :create_time_0, :update_time_0), (:id_1, :create_time_1, :update_time_1).
+2015/07/23 16:01:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `tbl_category` (`id`, `create_time`, `update_time`) VALUES (:id_0, :create_time_0, :update_time_0), (:id_1, :create_time_1, :update_time_1)' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(195): CDbCommand->execute()
+#1 /var/www/yii-simple-cms/yii-cms/protected/migrations/m150723_125717_add_role_table.php(28): CDbMigration->insertMultiple('tbl_category', Array)
+#2 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(415): m150723_125717_add_role_table->up()
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150723_125717_...')
+#4 [internal function]: MigrateCommand->actionUp(Array)
+#5 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#6 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#7 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#8 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#9 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#10 /var/www/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/yii-si...')
+#11 /var/www/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/yii-si...')
+#12 {main}
+---
+2015/07/23 16:01:49 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_role' already exists. The SQL statement executed was: CREATE TABLE `tbl_role` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`type` varchar(100) NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8.
+2015/07/23 16:01:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_role' already exists. The SQL statement executed was: CREATE TABLE `tbl_role` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`type` varchar(100) NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php(1352): CDbCommand->execute()
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(250): CDbCommand->createTable('tbl_role', Array, 'ENGINE=InnoDB C...')
+#2 /var/www/yii-simple-cms/yii-cms/protected/migrations/m150723_125717_add_role_table.php(13): CDbMigration->createTable('tbl_role', Array, 'ENGINE=InnoDB C...')
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(415): m150723_125717_add_role_table->up()
+#4 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150723_125717_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#11 /var/www/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/yii-si...')
+#12 /var/www/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/yii-si...')
+#13 {main}
+---
+2015/07/23 16:02:07 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_role' already exists. The SQL statement executed was: CREATE TABLE `tbl_role` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`type` varchar(100) NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8.
+2015/07/23 16:02:07 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_role' already exists. The SQL statement executed was: CREATE TABLE `tbl_role` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`type` varchar(100) NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php(1352): CDbCommand->execute()
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(250): CDbCommand->createTable('tbl_role', Array, 'ENGINE=InnoDB C...')
+#2 /var/www/yii-simple-cms/yii-cms/protected/migrations/m150723_125717_add_role_table.php(13): CDbMigration->createTable('tbl_role', Array, 'ENGINE=InnoDB C...')
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(415): m150723_125717_add_role_table->up()
+#4 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150723_125717_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#11 /var/www/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/yii-si...')
+#12 /var/www/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/yii-si...')
+#13 {main}
+---
+2015/07/23 16:02:35 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'CMS.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2015/07/23 16:02:38 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `tbl_category` (`id`, `create_time`, `update_time`) VALUES (:id_0, :create_time_0, :update_time_0), (:id_1, :create_time_1, :update_time_1).
+2015/07/23 16:02:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `tbl_category` (`id`, `create_time`, `update_time`) VALUES (:id_0, :create_time_0, :update_time_0), (:id_1, :create_time_1, :update_time_1)' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(195): CDbCommand->execute()
+#1 /var/www/yii-simple-cms/yii-cms/protected/migrations/m150723_125717_add_role_table.php(28): CDbMigration->insertMultiple('tbl_category', Array)
+#2 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(415): m150723_125717_add_role_table->up()
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150723_125717_...')
+#4 [internal function]: MigrateCommand->actionUp(Array)
+#5 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#6 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#7 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#8 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#9 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#10 /var/www/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/yii-si...')
+#11 /var/www/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/yii-si...')
+#12 {main}
+---
+2015/07/23 16:03:28 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'CMS.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2015/07/23 16:03:29 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_article' already exists. The SQL statement executed was: CREATE TABLE `tbl_article` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`title` varchar(255) NOT NULL,
+	`body` text NOT NULL,
+	`image` varchar(150) NOT NULL,
+	`published` tinyint(1) NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8.
+2015/07/23 16:03:29 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_article' already exists. The SQL statement executed was: CREATE TABLE `tbl_article` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`title` varchar(255) NOT NULL,
+	`body` text NOT NULL,
+	`image` varchar(150) NOT NULL,
+	`published` tinyint(1) NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php(1352): CDbCommand->execute()
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(250): CDbCommand->createTable('tbl_article', Array, 'ENGINE=InnoDB C...')
+#2 /var/www/yii-simple-cms/yii-cms/protected/migrations/m150713_095015_add_article_table.php(16): CDbMigration->createTable('tbl_article', Array, 'ENGINE=InnoDB C...')
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(415): m150713_095015_add_article_table->up()
+#4 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150713_095015_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#11 /var/www/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/yii-si...')
+#12 /var/www/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/yii-si...')
+#13 {main}
+---
+2015/07/23 16:03:40 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_article' already exists. The SQL statement executed was: CREATE TABLE `tbl_article` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`title` varchar(255) NOT NULL,
+	`body` text NOT NULL,
+	`image` varchar(150) NOT NULL,
+	`published` tinyint(1) NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8.
+2015/07/23 16:03:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_article' already exists. The SQL statement executed was: CREATE TABLE `tbl_article` (
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`title` varchar(255) NOT NULL,
+	`body` text NOT NULL,
+	`image` varchar(150) NOT NULL,
+	`published` tinyint(1) NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB CHARSET=utf8' in /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbCommand.php(1352): CDbCommand->execute()
+#1 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/db/CDbMigration.php(250): CDbCommand->createTable('tbl_article', Array, 'ENGINE=InnoDB C...')
+#2 /var/www/yii-simple-cms/yii-cms/protected/migrations/m150713_095015_add_article_table.php(16): CDbMigration->createTable('tbl_article', Array, 'ENGINE=InnoDB C...')
+#3 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(415): m150713_095015_add_article_table->up()
+#4 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150713_095015_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /var/www/yii-simple-cms/vendor/yiisoft/yii/framework/yiic.php(33): CApplication->run()
+#11 /var/www/yii-simple-cms/yii-cms/protected/yiic.php(7): require_once('/var/www/yii-si...')
+#12 /var/www/yii-simple-cms/yii-cms/protected/yiic(4): require_once('/var/www/yii-si...')
+#13 {main}
+---
+2015/07/23 16:04:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'CMS.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.

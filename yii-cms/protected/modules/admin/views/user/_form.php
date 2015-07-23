@@ -55,6 +55,12 @@
 		<?php echo $form->error($model,'email'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'role'); ?>
+		<?php echo $form->textField($model,'role',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->error($model,'role'); ?>
+	</div>
+
 	<?php if ($this->action->id != 'create' ) : ?>
 
 		<div class="row">
