@@ -25,7 +25,6 @@ $this->menu=array(
 		'fname',
 		'lname',
 		'username',
-		'password',
 		'email',
 		'last_login_time',
 		'create_time',

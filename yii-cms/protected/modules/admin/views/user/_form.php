@@ -56,9 +56,14 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'role'); ?>
-		<?php echo $form->textField($model,'role',array('size'=>50,'maxlength'=>50)); ?>
-		<?php echo $form->error($model,'role'); ?>
+		<?php echo $form->labelEx($model,'role_id'); ?>
+		<?php echo $form->dropDownList(
+								$model,
+								'role_id', 
+								CHtml::listData(Role::model()->findAll(array('select' => 'id, type')), 'id', 'type'),
+								array('options' => array($model->role_id => array('selected' => true)))
+						  ); ?>
+		<?php echo $form->error($model,'role_id'); ?>
 	</div>
 
 	<?php if ($this->action->id != 'create' ) : ?>

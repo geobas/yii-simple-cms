@@ -10,6 +10,7 @@
  * @property string $username
  * @property string $password
  * @property string $email
+ * @property string $role_id
  * @property string $last_login_time
  * @property string $create_time
  * @property string $update_time
@@ -67,16 +68,17 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fname, lname, username, password, email', 'required'),
+			array('fname, lname, username, password, email, role_id', 'required'),
 			array('fname, username, password, email', 'length', 'max'=>50),
 			array('lname', 'length', 'max'=>70),
+			array('role_id', 'length', 'max'=>10),
 			array('email, username', 'unique'),
 			array('email', 'email'),
 			array('password', 'compare'),
 			array('password_repeat', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, fname, lname, username, password, email, last_login_time, create_time, update_time', 'safe', 'on'=>'search'),
+			array('id, fname, lname, username, password, email, role_id, last_login_time, create_time, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -88,6 +90,7 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'role' => array(self::BELONGS_TO, 'Role', 'role_id'),
 		);
 	}
 
@@ -103,6 +106,7 @@ class User extends CActiveRecord
 			'username' => 'Username',
 			'password' => 'Password',
 			'email' => 'Email',
+			'role_id' => 'Role',
 			'last_login_time' => 'Last Login Time',
 			'create_time' => 'Create Time',
 			'update_time' => 'Update Time',
@@ -133,6 +137,7 @@ class User extends CActiveRecord
 		$criteria->compare('username',$this->username,true);
 		$criteria->compare('password',$this->password,true);
 		$criteria->compare('email',$this->email,true);
+        $criteria->compare('role_id',$this->role_id,true);
 		$criteria->compare('last_login_time',$this->last_login_time,true);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('update_time',$this->update_time,true);
@@ -151,5 +156,5 @@ class User extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
-	}
+	}	
 }
