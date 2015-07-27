@@ -6,10 +6,10 @@ $this->pageTitle=Yii::app()->name;
 
 <h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
 
-<?php if ( isset(Yii::app()->user->lastLoginTime) ) : ?>
+<?php if ( !empty($time) ) : ?>
 
 <div class="alert alert-info" role="alert">
-	<?php echo 'You last logged in on ' . date( 'l, F d, Y, g:i a', Yii::app()->user->lastLoginTime); ?>
+	<?php echo 'You last logged in on ' . $time; ?>
 </div>
 
 <?php endif; ?>
