@@ -52,10 +52,10 @@ class Article extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('title, body, image, published', 'required'),
-			array('published', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>255),
 			array('image', 'length', 'max'=>150),
 			array('category', 'safe', 'on' => 'create'),
+			array('published', 'in', 'range' => self::getAllowedPublishedRange()),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, title, body, image, published, create_time, update_time', 'safe', 'on'=>'search'),
@@ -161,6 +161,18 @@ class Article extends CActiveRecord
 		return array(
 			self::ENABLED => 'Yes',
 			self::DISABLED => 'No',
+		);
+	}
+
+	/**
+	 * Returns all allowed publishing options
+	 * @return array allowed publishing options
+	 */
+	public static function getAllowedPublishedRange()
+	{
+		return array(
+			self::ENABLED,
+			self::DISABLED,
 		);
 	}
 }
