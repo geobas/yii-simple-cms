@@ -58,7 +58,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'published'); ?>
-		<?php echo $form->dropDownList($model,'published', $model->getPublishedOptions()); ?>
+		<?php echo $form->dropDownList($model,'published', $model->publishedOptions); ?>
 		<?php echo $form->error($model,'published'); ?>
 	</div>
 

@@ -16,6 +16,7 @@ class ArticleController extends Controller
 		return array(
 			'accessControl', // perform access control for CRUD operations
 			'postOnly + delete', // we only allow deletion via POST request
+			'categoryOption + create, update', // check to ensure that category is valid
 		);
 	}
 
@@ -176,4 +177,28 @@ class ArticleController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+	/**
+	 * Checks if the category is valid before saving or updating an article
+	 * It is called before the actionCreate() or actionUpdate() method is run
+	 * @param CFilterChain $filterChain a list of filters being applied to the action 
+	 */
+	public function filterCategoryOption($filterChain)
+	{
+		if ( !empty($_POST) ) // an article was created or updated
+		{
+			$category_id = (int) $_POST['Article']['category'];
+			$category = Category::model()->findByPk($category_id);
+			if ( empty($category) )
+				throw new CHttpException(403, 'Invalid category option.');				
+			else				
+				//complete the running of other filters and execute the requested action
+				$filterChain->run();
+		}	
+		else // render article form
+		{
+			$filterChain->run();
+		}
+	}
+
 }
