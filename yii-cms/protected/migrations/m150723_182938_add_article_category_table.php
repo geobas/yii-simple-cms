@@ -1,6 +1,6 @@
 <?php
 
-class m150713_182938_add_article_category_table extends CDbMigration
+class m150723_182938_add_article_category_table extends CDbMigration
 {
 	public function up()
 	{

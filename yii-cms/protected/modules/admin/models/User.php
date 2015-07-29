@@ -14,6 +14,10 @@
  * @property string $last_login_time
  * @property string $create_time
  * @property string $update_time
+ *
+ * The followings are the available model relations:
+ * @property Article[] $articles
+ * @property Role $role
  */
 class User extends CActiveRecord
 {
@@ -119,6 +123,7 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'articles' => array(self::HAS_MANY, 'Article', 'user_id'),
 			'role' => array(self::BELONGS_TO, 'Role', 'role_id'),
 		);
 	}

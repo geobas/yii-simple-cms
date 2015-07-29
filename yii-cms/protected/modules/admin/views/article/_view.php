@@ -25,6 +25,10 @@
 	<?php echo CHtml::encode($data->image); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('user_id')); ?>:</b>
+	<?php echo CHtml::encode($data->user->username); ?>
+	<br />	
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('published')); ?>:</b>
 	<?php echo CHtml::encode($data->publishedText); ?>
 	<br />

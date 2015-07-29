@@ -73,6 +73,7 @@ class ArticleController extends Controller
 		{
 			$model->attributes=$_POST['Article'];
 			$model->category=$_POST['Article']['category'];
+			$model->user_id = Yii::app()->user->getId();
 			$model->create_time=date('Y-m-d H:i:s');
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
@@ -92,6 +93,7 @@ class ArticleController extends Controller
 	{
 		$model=$this->loadModel($id);
 		$model->category = ArticleCategory::model()->findByAttributes(array('article_id'=>$id))->category_id;
+		$model->user_id = Yii::app()->user->getId();
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);

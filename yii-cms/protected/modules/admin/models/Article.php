@@ -8,11 +8,13 @@
  * @property string $title
  * @property string $body
  * @property string $image
+ * @property string $user_id
  * @property integer $published
  * @property string $create_time
  * @property string $update_time
  *
  * The followings are the available model relations:
+ * @property User $user
  * @property Category[] $categories
  */
 class Article extends CActiveRecord
@@ -54,11 +56,12 @@ class Article extends CActiveRecord
 			array('title, body, image, published', 'required'),
 			array('title', 'length', 'max'=>255),
 			array('image', 'length', 'max'=>150),
+			array('user_id', 'length', 'max'=>10),
 			array('category', 'safe', 'on' => 'create'),
 			array('published', 'in', 'range' => self::getAllowedPublishedRange()),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, body, image, published, create_time, update_time', 'safe', 'on'=>'search'),
+			array('id, title, body, image, user_id, published, create_time, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -70,6 +73,7 @@ class Article extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
 			'categories' => array(self::MANY_MANY, 'Category', 'tbl_article_category(article_id, category_id)'),
 		);
 	}
@@ -84,6 +88,7 @@ class Article extends CActiveRecord
 			'title' => 'Title',
 			'body' => 'Body',
 			'image' => 'Image',
+			'user_id' => 'User',
 			'published' => 'Published',
 			'create_time' => 'Create Time',
 			'update_time' => 'Update Time',
@@ -112,6 +117,7 @@ class Article extends CActiveRecord
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('body',$this->body,true);
 		$criteria->compare('image',$this->image,true);
+		$criteria->compare('user_id',$this->user_id,true);
 		$criteria->compare('published',$this->published);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('update_time',$this->update_time,true);

@@ -26,6 +26,10 @@ $this->menu=array(
 		'body',
 		'image',
 		array(
+			'name'=>'user_id',
+			'value'=>isset($model->user) ? CHtml::encode($model->user->username) : "unknown",
+		),			
+		array(
 			'name'=>'published',
 			'value'=>CHtml::encode($model->publishedText)
 		),		
