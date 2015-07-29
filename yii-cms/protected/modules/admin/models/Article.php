@@ -153,6 +153,19 @@ class Article extends CActiveRecord
 	}
 
 	/**
+	 * Returns an array with all article categories
+	 * @return array array of categories
+	 */
+	public function getCategoryList()
+	{
+		$categories = CHtml::listData(Category::model()->findAll(array('select' => 'id, title')), 'id', 'title');
+		if ( !empty($categories) )
+			return $categories;
+		else
+			return array();
+	}
+
+	/**
 	 * Returns all article publishing options
 	 * @return array publishing options
 	 */

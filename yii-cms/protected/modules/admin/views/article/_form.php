@@ -31,7 +31,7 @@
 		<?php echo $form->dropDownList(
 								$model,
 								'category', 
-								CHtml::listData(Category::model()->findAll(array('select' => 'id, title')), 'id', 'title'),
+								$model->categoryList,
 								array(/*'multiple'=>'false', */'options' => array($model->category => array('selected' => true)))
 						  ); ?>
 		<?php echo $form->error($model,'category'); ?>
