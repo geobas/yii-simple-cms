@@ -29,7 +29,7 @@ class ArticleController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','list'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -132,6 +132,23 @@ class ArticleController extends Controller
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('Article');
+		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));
+	}
+
+	/**
+	 * Lists only articles created|edited by logged-in user.
+	 */
+	public function actionList()
+	{
+		$dataProvider=new CActiveDataProvider('Article', array(
+			'criteria'=>array(
+				'condition'=>'user_id=:user_id',
+				'params'=>array(':user_id'=> (int) $_GET['id']),
+			),			
+		));
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
