@@ -39,7 +39,8 @@
 				array('label'=>'Article', 'url'=>array('/admin/article/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Category', 'url'=>array('/admin/category/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'User', 'url'=>array('/admin/user/index'), 'visible'=>!Yii::app()->user->isGuest, 'visible'=>Yii::app()->user->checkAccess('admin')),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!Yii::app()->user->isGuest),
+				// array('label'=>'Dummy', 'url'=>array('/site/index', 'id' => 1, 'pid' => 2, 'name' => 'geo')),
 			),
 		)); ?>
 	</div><!-- mainmenu -->
