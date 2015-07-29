@@ -26,7 +26,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('published')); ?>:</b>
-	<?php echo CHtml::encode($data->published); ?>
+	<?php echo CHtml::encode($data->publishedText); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('create_time')); ?>:</b>

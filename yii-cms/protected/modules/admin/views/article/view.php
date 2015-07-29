@@ -25,7 +25,10 @@ $this->menu=array(
 		'title',
 		'body',
 		'image',
-		'published',
+		array(
+			'name'=>'published',
+			'value'=>CHtml::encode($model->publishedText)
+		),		
 		'create_time',
 		'update_time',
 	),

@@ -188,4 +188,14 @@ class Article extends CActiveRecord
 			self::DISABLED,
 		);
 	}
+
+	/**
+	 * Returns the published status text
+	 * @return string the published status text for the current article
+	 */
+	public function getPublishedText()
+	{
+		$publishedOptions = $this->publishedOptions;
+		return isset($publishedOptions[$this->published]) ? $publishedOptions[$this->published] : "unknown published status ({$this->published})";
+	}
 }
