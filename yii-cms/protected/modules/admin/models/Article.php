@@ -198,4 +198,15 @@ class Article extends CActiveRecord
 		$publishedOptions = $this->publishedOptions;
 		return isset($publishedOptions[$this->published]) ? $publishedOptions[$this->published] : "unknown published status ({$this->published})";
 	}
+
+	/**
+	 * Returns a custom formatted date
+	 * @param  string $date date in MySQL format yyyy-mm-dd h:i:s
+	 * @return string date formatted
+	 */
+	public function formatDate($date)
+	{
+		$time = date('l, F d, Y, g:i a', strtotime($date));
+		return $time;
+	}
 }

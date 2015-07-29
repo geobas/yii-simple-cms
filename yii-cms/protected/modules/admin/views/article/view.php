@@ -29,7 +29,13 @@ $this->menu=array(
 			'name'=>'published',
 			'value'=>CHtml::encode($model->publishedText)
 		),		
-		'create_time',
-		'update_time',
+		array(
+			'name'=>'create_time',
+			'value'=>CHtml::encode($model->formatDate($model->create_time))
+		),	
+		array(
+			'name'=>'update_time',
+			'value'=>CHtml::encode($model->formatDate($model->update_time))
+		),					
 	),
 )); ?>
