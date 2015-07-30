@@ -21,17 +21,17 @@ class UserIdentity extends CUserIdentity
 	{
 		$user=User::model()->findByAttributes(array('username'=>$this->username));
 
-		if ( $user===null )
+		if ( $user===null ) // username not found
 		{
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
 		}
-		else
+		else // username was found
 		{
-			if ( $this->validatePassword($user->password) )
+			if ( $this->validatePassword($user->password) ) // password is invalid
 			{
 				$this->errorCode=self::ERROR_PASSWORD_INVALID;
 			}
-			else
+			else // password is valid (and username)
 			{
 				$this->_id = $user->id;
 
@@ -43,8 +43,14 @@ class UserIdentity extends CUserIdentity
 				{
 					$lastLogin = strtotime($user->last_login_time);
 				}
-				Yii::app()->user->setState('lastLoginTime', $lastLogin); // store user's last login time to session
-				Yii::app()->user->setState('role', $user->role->type); // store user's role to session
+				// update user's last login time
+				$user->saveAttributes(array(
+					'last_login_time'=>new CDbExpression('NOW()')
+				));
+				// store user's last login time to application's state
+				Yii::app()->user->setState('lastLoginTime', $lastLogin);
+				// store user's role to application's state
+				Yii::app()->user->setState('role', $user->role->type);
 				$this->errorCode=self::ERROR_NONE;
 			}
 		}
