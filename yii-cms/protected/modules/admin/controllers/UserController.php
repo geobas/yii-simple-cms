@@ -125,7 +125,12 @@ class UserController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('User');
+		$dataProvider=new CActiveDataProvider('User', array(
+			'pagination'=>array(
+				'pageSize'=>1,
+			),			
+		));
+		
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
