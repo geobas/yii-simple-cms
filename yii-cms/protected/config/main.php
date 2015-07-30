@@ -45,10 +45,28 @@ return array(
 
 		'user'=>array(
 			// enable cookie-based authentication
-			'allowAutoLogin'=>true,
+			'allowAutoLogin'=>true,			
 			// custom RBAC
 			'class' => 'WebUser',
+			'authTimeout' => 600,
 		),
+
+		// YII_CSRF_TOKEN cookie
+		'request'=>array(
+	        'enableCsrfValidation' => true,
+	        'enableCookieValidation'=>true,
+	        'csrfCookie'=>array(
+	        	'httpOnly'=>true,
+	        ),
+		),
+
+		// PHPSESSID cookie
+        'session' => array(
+        	'sessionName' => 'cms',
+            'cookieParams' => array(
+            	'httponly' => true,
+            ),
+        ),
 
 		// uncomment the following to enable URLs in path-format		
 		'urlManager'=>array(
