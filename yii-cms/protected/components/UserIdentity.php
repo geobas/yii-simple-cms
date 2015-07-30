@@ -27,7 +27,7 @@ class UserIdentity extends CUserIdentity
 		}
 		else
 		{
-			if ( $user->password!==crypt(trim($this->password), $user->password) )				
+			if ( $this->validatePassword($user->password) )
 			{
 				$this->errorCode=self::ERROR_PASSWORD_INVALID;
 			}
@@ -50,6 +50,16 @@ class UserIdentity extends CUserIdentity
 		}
 
 		return !$this->errorCode;
+	}
+
+	/**
+	 * Checks if the given password is correct.
+	 * @param  string the password to be validated
+	 * @return boolean whether the password is valid
+	 */
+	private function validatePassword($password)
+	{
+		return $password !== crypt(trim($this->password), $password);
 	}
 
 	/**
