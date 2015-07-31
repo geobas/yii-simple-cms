@@ -79,6 +79,18 @@ class Article extends CActiveRecord
 	}
 
 	/**
+	 * @return array custom behaviors.
+	 */
+	public function behaviors()
+	{
+		return array(
+			'timestampBehavior' => array(
+				'class' => 'application.behaviors.TimestampBehavior',
+			),		
+		);
+	}
+
+	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
 	public function attributeLabels()
