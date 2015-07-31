@@ -20,6 +20,18 @@ class ArticleCategory extends CActiveRecord
 	}
 
 	/**
+	 * @return array custom behaviors.
+	 */
+	public function behaviors()
+	{
+		return array(
+			'timestampBehavior' => array(
+				'class' => 'application.behaviors.TimestampBehavior',
+			),		
+		);
+	}
+
+	/**
 	 * Creates a new model.
 	 * @param integer $article_id article's id for creation
 	 * @param integer $category_id category's id for creation
@@ -41,8 +53,6 @@ class ArticleCategory extends CActiveRecord
             $articleCategory->attributes = array(
             									'article_id'=>$article_id,
 	            								'category_id'=>$category_id,
-            									'create_time'=>date('Y-m-d H:i:s'),
-            									'update_time'=>'0000-00-00 00:00:00',
             								);
             $articleCategory->save();
         }
@@ -56,7 +66,7 @@ class ArticleCategory extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('article_id, category_id, create_time, update_time', 'required'),
+			array('article_id, category_id', 'required'),
 			array('article_id, category_id', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
