@@ -23,7 +23,7 @@ class AdminModule extends CWebModule
 		{
 			if ( $controller->id != 'default' && Yii::app()->user->isGuest )
 			{
-				Yii::app()->request->redirect('default/login');				
+				Yii::app()->request->redirect(WebUser::buildBackendUrl());
 			}
 			else
 				return true;

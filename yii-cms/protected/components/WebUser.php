@@ -8,6 +8,12 @@
 class WebUser extends CWebUser
 {
     /**
+     * Route for logging to Backend
+     * @static string
+     */
+    public static $loginRoute = '/admin';
+
+    /**
      * Overrides a Yii method that is used for roles in controllers (accessRules).
      *
      * @param string $operation Name of the operation required (here, a role).
@@ -26,5 +32,14 @@ class WebUser extends CWebUser
         }
         // allow access if the operation request is the current user's role
         return ($operation === $role);
+    }
+
+    /**
+     * Returns a relative url for logging to Backend
+     * @return string Backend login url
+     */
+    public static function buildBackendUrl()
+    {
+        return Yii::app()->baseUrl . static::$loginRoute;
     }
 }
