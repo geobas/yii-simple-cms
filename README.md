@@ -1,4 +1,4 @@
-# Yii-simple-cms
+# Yii 1.1 CMS
 A simple CMS to startup your application
 
 ## Set up
