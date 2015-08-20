@@ -92,14 +92,28 @@ return array(
 			'routes'=>array(
 				array(
 					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
+					'levels'=>'error',
+					'logFile'=>'application.log',
+					'maxFileSize'=>2048,
+					'maxLogFiles'=>10,
 				),
-				// uncomment the following to show log messages on web pages
-				/*
+				array(
+					'class'=>'CFileLogRoute',
+					'levels'=>'info, trace',
+					'logFile'=>'infoMessages.log',
+				),
+				array(
+					'class'=>'CFileLogRoute',
+					'levels'=>'warning',
+					'logFile'=>'warningMessages.log',
+				),		
+
+				// uncomment the following to show log messages on web pages				
 				array(
 					'class'=>'CWebLogRoute',
+					'levels'=>'warning',
 				),
-				*/
+				
 			),
 		),
 

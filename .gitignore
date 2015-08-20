@@ -2,3 +2,5 @@
 vendor/
 #ignore assets
 yii-cms/assets/
+#ignore log files
+yii-cms/protected/runtime/

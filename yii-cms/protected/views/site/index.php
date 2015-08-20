@@ -14,6 +14,8 @@ $this->pageTitle=Yii::app()->name;
 
 <?php endif; ?>
 
+<?php // CVarDumper::dump(Yii::getLogger()->getLogs(), 3, true); // YII_DEBUG must be true ?>
+
 <p>Congratulations! You have successfully created your Yii application.</p>
 
 <p>You may change the content of this page by modifying the following two files:</p>
