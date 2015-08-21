@@ -57,7 +57,7 @@ class Article extends CActiveRecord
 			array('title', 'length', 'max'=>255),
 			array('image', 'length', 'max'=>150),
 			array('user_id', 'length', 'max'=>10),
-			array('category', 'safe', 'on' => 'create'),
+			array('category', 'safe', 'on' => 'create, update'),
 			array('published', 'in', 'range' => self::getAllowedPublishedRange()),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

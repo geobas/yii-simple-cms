@@ -22,6 +22,24 @@ class SiteController extends Controller
 	}
 
 	/**
+	 * @return array action filters
+	 */
+	public function filters()
+	{
+		return array(
+			array(
+				'COutputCache + view',
+				// 'duration'=>120, // cache the entire output from the actionView() method for 2 minutes
+				'dependency'=> array(
+									'class'=>'system.caching.dependencies.CDbCacheDependency',
+									'sql'=>'SELECT update_time FROM tbl_article WHERE id = ' . Yii::app()->request->getQuery('id'),
+			  				   ),			
+				'varyByParam'=>array('id'),
+			),			
+		);
+	}	
+
+	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
 	 */
@@ -74,6 +92,49 @@ class SiteController extends Controller
 			}
 		}
 		$this->render('contact',array('model'=>$model));
+	}
+
+	/**
+	 * Displays the articles page
+	 */
+	public function actionArticles()
+	{
+		// import the models of admin module
+		Yii::import('application.modules.admin.models.*');
+
+		$dataProvider=new CActiveDataProvider('Article');
+		$this->render('articles',array(
+			'dataProvider'=>$dataProvider,
+		));	
+	}
+
+	/**
+	 * Displays a single article.
+	 * @param integer $id the ID of the article to be displayed
+	 */
+	public function actionView($id)
+	{
+		$this->render('view',array(
+			'model'=>$this->loadModel($id),
+		));
+	}
+
+	/**
+	 * Returns the data model based on the primary key given in the GET variable.
+	 * If the data model is not found, an HTTP exception will be raised.
+	 * @param integer $id the ID of the model to be loaded
+	 * @return Article the loaded model
+	 * @throws CHttpException
+	 */
+	public function loadModel($id)
+	{
+		// import the models of admin module
+		Yii::import('application.modules.admin.models.*');
+
+		$model=Article::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
 	}
 
 }
