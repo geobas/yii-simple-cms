@@ -117,10 +117,14 @@ return array(
 			),
 		),
 
+		'cache'=>array(
+			'class'=>'system.caching.CFileCache',
+		),
+
 		'bootstrap' => array(
-		        // 'class' => 'bootstrap.components.TbApi',
-		        'class' => '\TbApi',
-		    ),		
+	    	// 'class' => 'bootstrap.components.TbApi',
+	    	'class' => '\TbApi',
+		),		
 
 	),
 
