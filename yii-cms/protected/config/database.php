@@ -6,6 +6,7 @@ return array(
 	// uncomment the following lines to use a MySQL database	
 	'connectionString' => 'mysql:host=localhost;dbname=CMS',
 	'emulatePrepare' => true,
+	'schemaCachingDuration' => 86400, // one day
 	'username' => 'root',
 	'password' => 'root',
 	'charset' => 'utf8',	
