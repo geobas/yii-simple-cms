@@ -4,12 +4,19 @@ class DefaultController extends Controller
 {
 	public $defaultAction = 'login';
 
+	public $layout='/layouts/column1';
+
 	/**
 	 * Displays index page
 	 */
 	public function actionIndex()
 	{
-		$this->render('index');
+		// user's last login time
+		if ( isset(Yii::app()->user->lastLoginTime) )
+			$time = date( 'l, F d, Y, g:i a', Yii::app()->user->lastLoginTime);
+		else
+			$time = null;	
+		$this->render('index', array('time' => $time));
 	}
 
 	/**
@@ -36,7 +43,8 @@ class DefaultController extends Controller
 			if($model->validate() && $model->login()) 
 			{
 				Yii::log("Successful login of user: " . Yii::app()->user->name, "info", "application.modules.admin.controllers.DefaultController");
-				$this->redirect(Yii::app()->user->returnUrl);
+				// $this->redirect(Yii::app()->user->returnUrl);
+				$this->redirect('admin/default/index');
 			} 
 			else 
 			{

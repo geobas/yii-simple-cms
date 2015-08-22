@@ -124,7 +124,11 @@ return array(
 		'bootstrap' => array(
 	    	// 'class' => 'bootstrap.components.TbApi',
 	    	'class' => '\TbApi',
-		),		
+		),
+
+		'clientScript' => array(
+			'coreScriptPosition' => CClientScript::POS_END,
+		),
 
 	),
 

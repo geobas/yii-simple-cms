@@ -25,19 +25,17 @@
 <div class="container" id="page">
 
 	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
+		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?> - Admin Area</div>
 	</div><!-- header -->
 
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'Articles', 'url'=>array('/site/articles')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Admin', 'url'=>array('/admin')),
-				// array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!Yii::app()->user->isGuest),
-				// array('label'=>'Dummy', 'url'=>array('/site/index', 'id' => 1, 'pid' => 2, 'name' => 'geo')),
+				array('label'=>'Return to site\'s home page', 'url'=>array('/site/index')),
+				array('label'=>'Article', 'url'=>array('/admin/article/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Category', 'url'=>array('/admin/category/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'User', 'url'=>array('/admin/user/index'), 'visible'=>!Yii::app()->user->isGuest, 'visible'=>Yii::app()->user->checkAccess('admin')),
+				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!Yii::app()->user->isGuest),
 			),
 		)); ?>
 	</div><!-- mainmenu -->

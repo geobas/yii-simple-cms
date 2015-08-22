@@ -6,14 +6,6 @@ $this->pageTitle=Yii::app()->name;
 
 <h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
 
-<?php if ( !empty($time) ) : ?>
-
-<div class="alert alert-info" role="alert">
-	<?php echo 'You last logged in on ' . $time; ?>
-</div>
-
-<?php endif; ?>
-
 <?php // CVarDumper::dump(Yii::getLogger()->getLogs(), 3, true); // YII_DEBUG must be true ?>
 
 <p>Congratulations! You have successfully created your Yii application.</p>

@@ -45,13 +45,9 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-		if ( isset(Yii::app()->user->lastLoginTime) )
-			$time = date( 'l, F d, Y, g:i a', Yii::app()->user->lastLoginTime);
-		else
-			$time = null;
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index', array('time' => $time));
+		$this->render('index');
 	}
 
 	/**
