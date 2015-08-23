@@ -91,6 +91,9 @@ class UserController extends Controller
 	{
 		$model=$this->loadModel($id);
 
+		// empty the value of password and password_repeat so there are not prefilled in model's form
+		$model->password = $model->password_repeat = '';
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 

@@ -41,7 +41,9 @@ class User extends CActiveRecord
 	protected function afterValidate()
 	{
 		parent::afterValidate();
-		$this->password = crypt(trim($this->password), self::blowfishSalt());
+		$errors = $this->getErrors();
+		if ( empty($errors) ) // if there are no errors only then hash the password
+			$this->password = crypt(trim($this->password), self::blowfishSalt());
 	}
 
 	/**
