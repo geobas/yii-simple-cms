@@ -2,8 +2,14 @@
 
 class DefaultController extends Controller
 {
+	/**
+	 * Sets the default action of controller
+	 */	
 	public $defaultAction = 'login';
 
+	/**
+	 * Sets the default layout for that controller's views
+	 */	
 	public $layout='/layouts/column1';
 
 	/**
@@ -11,6 +17,10 @@ class DefaultController extends Controller
 	 */
 	public function actionIndex()
 	{
+		// display this page only when the user is logged in
+		if ( Yii::app()->user->isGuest )
+			Yii::app()->request->redirect(WebUser::buildBackendUrl());
+
 		// user's last login time
 		if ( isset(Yii::app()->user->lastLoginTime) )
 			$time = date( 'l, F d, Y, g:i a', Yii::app()->user->lastLoginTime);
