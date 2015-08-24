@@ -25,6 +25,7 @@ return array(
 	    'bootstrap.form.*',
 	    'bootstrap.helpers.*',
 	    'bootstrap.widgets.*',
+	    // 'application.modules.admin.models.*',
 	),
 
 	'modules'=>array(
