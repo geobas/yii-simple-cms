@@ -10,7 +10,7 @@ return array(
 	'name'=>'My Yii 1.1 CMS',
 	'id'=>'CMS',
 	'homeUrl'=>'/yii-simple-cms/yii-cms',
-	'language'=>'el_gr',
+	// 'language'=>'el_gr',
 
 	// preloading 'log' component
 	'preload'=>array('log'),

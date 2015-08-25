@@ -53,7 +53,9 @@ class SiteController extends Controller
 	{
 		$today = getdate(); 
 		$locale = Yii::app()->getLocale(Yii::app()->language);
-		Yii::app()->language = 'el_gr';
+
+		// change language for that view
+		// Yii::app()->language = 'el_gr';
 		
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
