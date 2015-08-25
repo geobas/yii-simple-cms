@@ -51,9 +51,11 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
+		$today = getdate(); 
+		$locale = Yii::app()->getLocale(Yii::app()->language);
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+		$this->render('index', array('today' => $today, 'locale' => $locale));
 	}
 
 	/**

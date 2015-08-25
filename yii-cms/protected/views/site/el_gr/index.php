@@ -8,7 +8,7 @@ $this->pageTitle=Yii::app()->name;
 
 <?php // CVarDumper::dump(Yii::getLogger()->getLogs(), 3, true); // YII_DEBUG must be true ?>
 
-<p>Συγχαρητήρια! Έχετε δημιουργήσει με επιτυχία την εφαρμογή σας Yii.</p>
+<p>Συγχαρητήρια! Έχετε δημιουργήσει με επιτυχία την εφαρμογή σας Yii. <span class="label label-info"><?php echo $today['mday'] . ' ' . $locale->monthNames[$today['mon']] . ' ' . $today['year'];?></span></p>
 
 <p>Μπορείτε να αλλάξετε το περιεχόμενο αυτής της σελίδας με την τροποποίηση των ακόλουθων δύο φακέλων</p>
 <ul>
