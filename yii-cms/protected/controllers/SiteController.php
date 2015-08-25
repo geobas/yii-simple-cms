@@ -3,6 +3,12 @@
 class SiteController extends Controller
 {
 	/**
+	 * Default controller action
+	 * @var string
+	 */
+	public $defaultAction = 'index';
+	
+	/**
 	 * Declares class-based actions.
 	 */
 	public function actions()

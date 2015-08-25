@@ -7,7 +7,9 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'My Yii 1.1 CMS',
+	'id'=>'CMS',
+	'homeUrl'=>'/yii-simple-cms/yii-cms',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
