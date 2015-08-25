@@ -84,6 +84,7 @@ return array(
 				'<language:(en|el)>/<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<language:(en|el)>/<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<language:(en|el)>/<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+				'<language:(en|el)>/<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
 			),
 		),		
 

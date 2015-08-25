@@ -39,7 +39,7 @@
 				array('label'=>'Articles', 'url'=>array('/site/articles')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Admin', 'url'=>array('/admin')),
+				array('label'=>'Admin', 'url'=>array('/admin/default/index')),
 				// array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!Yii::app()->user->isGuest),
 				// array('label'=>'Dummy', 'url'=>array('/site/index', 'id' => 1, 'pid' => 2, 'name' => 'geo')),
 			),

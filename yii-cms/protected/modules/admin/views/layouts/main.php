@@ -26,6 +26,10 @@
 
 	<div id="header">
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?> - Admin Area</div>
+
+		<div id="language-selector" style="float:right; margin:5px;">
+		    <?php $this->widget('application.components.widgets.LanguageSelector'); ?>
+		</div>		
 	</div><!-- header -->
 
 	<div id="mainmenu">
