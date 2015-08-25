@@ -10,7 +10,9 @@ return array(
 	'name'=>'My Yii 1.1 CMS',
 	'id'=>'CMS',
 	'homeUrl'=>YII_ABSOLUTE_URL,
-	// 'language'=>'el_gr',
+	'sourceLanguage'=>'en',
+	'language'=>'el',
+	// 'language'=>'el_gr', // this locale ID is not used anymore
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -74,13 +76,15 @@ return array(
 
 		// uncomment the following to enable URLs in path-format		
 		'urlManager'=>array(
+			'class'=>'application.components.UrlManager',
 			'urlFormat'=>'path',
-			'rules'=>array(
-				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-			),
 			'showScriptName'=>false,
+			'rules'=>array(
+            	'<language:(en|el)>/' => 'site/index',				
+				'<language:(en|el)>/<controller:\w+>/<id:\d+>'=>'<controller>/view',
+				'<language:(en|el)>/<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+				'<language:(en|el)>/<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+			),
 		),		
 
 		// database settings are configured in database.php
@@ -146,5 +150,6 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 		'salt' => '!#@SyR4t|\#~L#$^',
+    	'languages'=>array('en'=>'English', 'el'=>'Ελληνικά'),		
 	),
 );
