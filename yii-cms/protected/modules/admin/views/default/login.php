@@ -7,15 +7,17 @@
 if ( !Yii::app()->user->isGuest )
 	Yii::app()->request->redirect('admin/default/index');
 
-$this->pageTitle=Yii::app()->name . ' - Login';
+$this->pageTitle=Yii::app()->name . ' - ' . Yii::t('adminModule.login', 'Login');
 $this->breadcrumbs=array(
-	'Login',
+	Yii::t('adminModule.login', 'Login'),
 );
 ?>
 
-<h1>Login</h1>
+<?php $dots = '...'; ?>
 
-<p>Please fill out the following form with your login credentials:</p>
+<h1><?php echo Yii::t('adminModule.login', 'Login{dots}', array('{dots}' => $dots)); ?></h1>
+
+<p><?php echo Yii::t('adminModule.login', 'Please fill out the following form with your login credentials'); ?>:</p>
 
 <div class="form">
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -26,7 +28,7 @@ $this->breadcrumbs=array(
 	),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note"><?php echo Yii::t('adminModule.login', 'Fields with'); ?> <span class="required">*</span> <?php echo Yii::t('adminModule.login', 'are required'); ?>.</p>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'username'); ?>
@@ -39,7 +41,7 @@ $this->breadcrumbs=array(
 		<?php echo $form->passwordField($model,'password'); ?>
 		<?php echo $form->error($model,'password'); ?>
 		<p class="hint">
-			Hint: You may login with <kbd>admin</kbd>/<kbd>admin</kbd>.
+			<?php echo Yii::t('adminModule.login', 'Hint: You may login with <kbd>admin</kbd>/<kbd>admin</kbd>'); ?>.
 		</p>
 	</div>
 
@@ -50,7 +52,8 @@ $this->breadcrumbs=array(
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Login'); ?>
+		<?php //echo CHtml::submitButton('Login'); ?>
+		<?php echo TbHtml::submitButton(Yii::t('adminModule.login', 'Login'), array('color' => TbHtml::BUTTON_COLOR_PRIMARY)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
