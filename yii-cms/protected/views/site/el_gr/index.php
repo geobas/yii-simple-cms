@@ -10,6 +10,8 @@ $this->pageTitle=Yii::app()->name;
 
 <p>Συγχαρητήρια! Έχετε δημιουργήσει με επιτυχία την εφαρμογή σας Yii. <span class="label label-info"><?php echo $today['mday'] . ' ' . $locale->monthNames[$today['mon']] . ' ' . $today['year'];?></span></p>
 
+<?php //echo Yii::app()->numberFormatter->formatDecimal(3.14); ?>
+
 <p>Μπορείτε να αλλάξετε το περιεχόμενο αυτής της σελίδας με την τροποποίηση των ακόλουθων δύο φακέλων</p>
 <ul>
 	<li>View file: <code><?php echo __FILE__; ?></code></li>
