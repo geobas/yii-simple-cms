@@ -11,4 +11,4 @@ A simple CMS to startup your application
 1. Yiistrap
 2. ExtCkeditor
 3. efeed
-4. 
+4. yii-EClientScript
