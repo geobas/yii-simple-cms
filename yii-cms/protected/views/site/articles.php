@@ -9,6 +9,8 @@ $this->breadcrumbs=array(
 ?>
 
 <h1>Articles</h1>
+<h5><?php echo CHtml::link('Articles feed', Yii::app()->createUrl('site/feed')); ?></h5>
+<p><a href="<?php echo Yii::app()->homeUrl; ?>/articlesFeed.xml">Articles feed alias</a></p>
 
 <?php
 	$key = 'CMS.articles';

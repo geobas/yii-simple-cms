@@ -10,3 +10,4 @@ A simple CMS to startup your application
 ## Installed Extensions
 1. Yiistrap
 2. ExtCkeditor
+3. efeed

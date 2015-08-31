@@ -18,7 +18,8 @@ return array(
 	'preload'=>array('log'),
 
 	'aliases' => array(
-		'bootstrap' => dirname(__FILE__).'/../../../vendor/crisu83/yiistrap' // change this if necessary
+		'bootstrap' => dirname(__FILE__).'/../../../vendor/crisu83/yiistrap', // change this if necessary
+		'efeed' => dirname(__FILE__).'/../../../vendor/2amigos/efeed',
 	),	
 
 	// autoloading model and component classes
@@ -85,6 +86,8 @@ return array(
 				'<language:(en|el)>/<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<language:(en|el)>/<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 				'<language:(en|el)>/<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
+				'articlesfeed'=>array('site/feed', 'urlSuffix'=>'.xml', 'caseSensitive'=>false),
+
 			),
 		),		
 

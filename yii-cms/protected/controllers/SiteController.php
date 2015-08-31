@@ -110,10 +110,56 @@ class SiteController extends Controller
 		// import the models of admin module
 		Yii::import('application.modules.admin.models.*');
 
+		Yii::app()->clientScript->registerLinkTag(
+			'alternate',
+			'application/rss+xml',
+			$this->createUrl('site/feed')
+		);
+
 		$dataProvider=new CActiveDataProvider('Article');
 		$this->render('articles',array(
 			'dataProvider'=>$dataProvider,
 		));	
+	}
+
+	/**
+	 * Returns an RSS formatted articles data feed
+	 */
+	public function actionFeed()
+	{
+		// import the models of admin module
+		Yii::import('application.modules.admin.models.*');
+
+		// get the 5 latest articles
+		$articles = Article::model()->findAll(array('order' => 'id DESC', 'limit' => 5));
+
+		// load efeed extension
+		Yii::import('efeed.*');
+
+		// specify feed type
+		$feed = new EFeed(EFeed::RSS1); // RSS 1.0
+		$feed->title = 'Latest articles';
+		$feed->link = Yii::app()->homeUrl;
+		$feed->description = 'This is test of creating a RSS 1.0 feed by Universal Feed Writer';
+		$feed->RSS1ChannelAbout = 'http://www.ramirezcobos.com/about';
+
+		// create our items
+		foreach ( $articles as $article )
+		{
+			$item = $feed->createNewItem();
+			$item->title = CHtml::encode($article->title);
+			$item->link = CHtml::encode(Yii::app()->homeUrl . '/el/site/' . $article->id);
+			$item->date = CHtml::encode($article->formatDate($article->create_time));
+			$item->description = CHtml::encode($article->body);
+			$item->addTag('dc:subject', 'Article Testing');
+
+			$feed->addItem($item);
+		}
+
+		$feed->generateFeed();
+		
+		// terminate the application
+		Yii::app()->end();
 	}
 
 	/**
