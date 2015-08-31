@@ -20,6 +20,7 @@ return array(
 	'aliases' => array(
 		'bootstrap' => dirname(__FILE__).'/../../../vendor/crisu83/yiistrap', // change this if necessary
 		'efeed' => dirname(__FILE__).'/../../../vendor/2amigos/efeed',
+		'eClientScript' => dirname(__FILE__).'/../../../vendor/muayyad-alsadi/yii-extended-clientscript',
 	),	
 
 	// autoloading model and component classes
@@ -140,6 +141,13 @@ return array(
 
 		'clientScript' => array(
 			'coreScriptPosition' => CClientScript::POS_END,
+			'class' => 'eClientScript.EClientScript',
+			'combineScriptFiles' => true, // By default this is set to true, set this to true if you'd like to combine the script files
+			'combineCssFiles' => true, // By default this is set to true, set this to true if you'd like to combine the css files
+			'optimizeScriptFiles' => true, // @since: 1.1
+			'optimizeCssFiles' => true, // @since: 1.1
+			'optimizeInlineScript' => false, // @since: 1.6, This may case response slower
+			'optimizeInlineCss' => false, // @since: 1.6, This may case response slower
 		),
 
 		'coreMessages'=>array(

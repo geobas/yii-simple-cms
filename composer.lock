@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "90b865f2b5474f82d3d007bed02350f7",
+    "hash": "ac88b4c37af6b7528353f5c8f0f049a1",
     "packages": [
         {
             "name": "2amigos/efeed",
@@ -96,6 +96,34 @@
                 "yii"
             ],
             "time": "2014-09-08 14:19:19"
+        },
+        {
+            "name": "muayyad-alsadi/yii-extended-clientscript",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/muayyad-alsadi/yii-EClientScript.git",
+                "reference": "e4978b231289c4c99b5029e10fc23a0de1d5ff8b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/muayyad-alsadi/yii-EClientScript/zipball/e4978b231289c4c99b5029e10fc23a0de1d5ff8b",
+                "reference": "e4978b231289c4c99b5029e10fc23a0de1d5ff8b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Muayyad Alsadi",
+                    "email": "alsadi@gmail.com"
+                }
+            ],
+            "description": "Extension to improve yiis native client script module",
+            "time": "2015-01-03 12:43:04"
         },
         {
             "name": "yiisoft/yii",
@@ -191,7 +219,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "muayyad-alsadi/yii-extended-clientscript": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
