@@ -5,16 +5,18 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="language" content="en">
 	
-	<?php
-		// blueprint CSS framework
-		Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/screen.css', 'screen, projection'); 
-		Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/print.css', 'print'); 
+	<!-- blueprint CSS framework -->
+	<!--[if lt IE 8]>
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection">
+	<![endif]-->
 
-		// [if lt IE 8]>
-		Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/ie.css', 'lte IE 8'); 				
-		
-		Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/form.css'); 
-		Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/main.css');
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css">
+
+	<?php		
+		// blueprint CSS framework
+		Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/screen.css');
+
+		Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/form.css');
 	?>
 
 	<?php /*load Yiistrap*/ Yii::app()->bootstrap->register(); ?>

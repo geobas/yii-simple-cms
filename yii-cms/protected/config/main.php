@@ -140,14 +140,27 @@ return array(
 		),
 
 		'clientScript' => array(
+			'class' => 'application.extensions.NLSClientScript.NLSClientScript',
+		    //'excludePattern' => '/\.tpl/i', //js regexp, files with matching paths won't be filtered is set to other than 'null'
+		    //'includePattern' => '/\.php/', //js regexp, only files with matching paths will be filtered if set to other than 'null'
+		 
+		    'mergeJs' => true, //def:true
+		    'compressMergedJs' => true, //def:false
+		 
+		    'mergeCss' => true, //def:true
+		    'compressMergedCss' => true, //def:false
+		 
+		    'mergeJsExcludePattern' => '/edit_area/', //won't merge js files with matching names
+		 
+		    'mergeIfXhr' => true, //def:false, if true->attempts to merge the js files even if the request was xhr (if all other merging conditions are satisfied)
+		 
+		    'serverBaseUrl' => 'http://localhost', //can be optionally set here
+		    'mergeAbove' => 1, //def:1, only "more than this value" files will be merged,
+		    'curlTimeOut' => 10, //def:10, see curl_setopt() doc
+		    'curlConnectionTimeOut' => 10, //def:10, see curl_setopt() doc
+		 
+		    'appVersion'=>'1.0', //if set, it will be appended to the urls of the merged scripts/css			
 			'coreScriptPosition' => CClientScript::POS_END,
-			'class' => 'eClientScript.EClientScript',
-			'combineScriptFiles' => true, // By default this is set to true, set this to true if you'd like to combine the script files
-			'combineCssFiles' => true, // By default this is set to true, set this to true if you'd like to combine the css files
-			'optimizeScriptFiles' => true, // @since: 1.1
-			'optimizeCssFiles' => true, // @since: 1.1
-			'optimizeInlineScript' => false, // @since: 1.6, This may case response slower
-			'optimizeInlineCss' => false, // @since: 1.6, This may case response slower
 		),
 
 		'coreMessages'=>array(

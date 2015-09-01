@@ -11,6 +11,15 @@
 
 ----------------------------------------------------------------------- */
 
+/* print.css */
+#main,body{margin:1em}
+body{background-color:#fff}
+th{text-align:left;color:#006;border-bottom:1px solid #ccc}
+tr.odd{background-color:#ddd}
+tr.even{background-color:#fff}
+td{padding:5px}
+#menu{visibility:hidden}
+
 /* reset.css */
 html {margin:0;padding:0;border:0;}
 body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
