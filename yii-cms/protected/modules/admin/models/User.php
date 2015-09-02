@@ -126,6 +126,7 @@ class User extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'articles' => array(self::HAS_MANY, 'Article', 'user_id'),
+			'articlesCount' => array(self::STAT, 'Article', 'user_id'), // Statistical query
 			'role' => array(self::BELONGS_TO, 'Role', 'role_id'),
 		);
 	}

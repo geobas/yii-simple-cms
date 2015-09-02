@@ -29,6 +29,12 @@
 	<?php echo CHtml::encode($data->last_login_time); ?>
 	<br />
 
+	<?php if ( $data->articlesCount >= 1 ) : ?>
+		<p>
+			<strong>That user has posted:</strong> <?php echo $data->articlesCount > 1 ? $data->articlesCount . ' articles' : 'one article'; ?>
+		</p>		
+	<?php endif; ?>
+
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('create_time')); ?>:</b>
 	<?php echo CHtml::encode($data->create_time); ?>
