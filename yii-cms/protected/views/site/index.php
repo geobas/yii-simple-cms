@@ -22,3 +22,15 @@ $this->pageTitle=Yii::app()->name;
 the <a href="http://www.yiiframework.com/doc/">documentation</a>.
 Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
 should you have any questions.</p>
+
+<?php
+
+$this->beginWidget('zii.widgets.CPortlet', array(
+	'title'=>'Recent Articles',
+));
+
+$this->widget('application.components.widgets.RecentArticlesWidget', array('displayLimit' => 3));
+
+$this->endWidget();
+
+?>

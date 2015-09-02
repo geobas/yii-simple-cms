@@ -20,3 +20,15 @@ $this->pageTitle=Yii::app()->name;
 
 <p>Για περισσότερες λεπτομέρειες σχετικά με το πώς μπορείτε να αναπτύξετε περαιτέρω αυτήν την εφαρμογή, παρακαλούμε διαβάστε την <a href="http://www.yiiframework.com/doc/">τεκμηρίωση</a>.
 Μη διστάσετε να ρωτήσετε στο <a href="http://www.yiiframework.com/forum/">forum</a>, εάν έχετε οποιεσδήποτε ερωτήσεις.</p>
+
+<?php
+
+$this->beginWidget('zii.widgets.CPortlet', array(
+	'title'=>'Πρόσφατα άρθρα',
+));
+
+$this->widget('application.components.widgets.RecentArticlesWidget', array('displayLimit' => 3));
+
+$this->endWidget();
+
+?>

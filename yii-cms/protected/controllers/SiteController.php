@@ -51,6 +51,9 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
+		// import the models of admin module
+		Yii::import('application.modules.admin.models.*');
+				
 		$today = getdate(); 
 		$locale = Yii::app()->getLocale(Yii::app()->language);
 

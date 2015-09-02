@@ -14,8 +14,6 @@ $this->breadcrumbs=array(
 
 <?php 
 
-$this->widget('application.components.widgets.RecentArticlesWidget', array('displayLimit' => 3));
-
 // get first article
 // $article = Article::model()->first()->find(); // lazy loading
 
