@@ -21,6 +21,12 @@ $this->menu=array(
 );
 ?>
 
+<?php if ( Yii::app()->user->hasFlash('article') ): ?>
+	<div class="alert alert-info" role="alert">
+		<?php echo Yii::app()->user->getFlash('article'); ?>
+	</div>
+<?php endif; ?>
+
 <h1>View Article #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
@@ -48,3 +54,10 @@ $this->menu=array(
 		),					
 	),
 )); ?>
+
+<?php
+	Yii::app()->clientScript->registerScript(
+		'fadeAndHideEffect',
+		'$(".alert-info").animate({opacity: 1.0}, 3000).fadeOut("slow");'
+	);
+?>

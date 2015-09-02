@@ -21,6 +21,12 @@ $this->menu=array(
 );
 ?>
 
+<?php if ( Yii::app()->user->hasFlash('category') ): ?>
+	<div class="alert alert-info" role="alert">
+		<?php echo Yii::app()->user->getFlash('category'); ?>
+	</div>
+<?php endif; ?>
+
 <h1>View Category #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
@@ -32,3 +38,10 @@ $this->menu=array(
 		'update_time',
 	),
 )); ?>
+
+<?php
+	Yii::app()->clientScript->registerScript(
+		'fadeAndHideEffect',
+		'$(".alert-info").animate({opacity: 1.0}, 3000).fadeOut("slow");'
+	);
+?>

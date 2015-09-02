@@ -47,8 +47,10 @@ class ArticleController extends Controller
 			$model->attributes=$_POST['Article'];
 			$model->category=$_POST['Article']['category'];
 			$model->user_id = Yii::app()->user->getId();
-			if($model->save())
+			if($model->save()) {
+				Yii::app()->user->setFlash('article', 'The article has been created succesfully.');
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
@@ -74,8 +76,10 @@ class ArticleController extends Controller
 		{
 			$model->attributes=$_POST['Article'];
 			$model->category=$_POST['Article']['category'];
-			if($model->save())
+			if($model->save()) {
+				Yii::app()->user->setFlash('article', 'The article has been updated succesfully.');
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(
@@ -93,8 +97,10 @@ class ArticleController extends Controller
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
+		if(!isset($_GET['ajax'])) {
+			Yii::app()->user->setFlash('article', 'The article has been deletedg succesfully.');
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		}
 	}
 
 	/**
