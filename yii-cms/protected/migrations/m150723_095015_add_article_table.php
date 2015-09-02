@@ -31,6 +31,7 @@ class m150723_095015_add_article_table extends CDbMigration
 
 	public function down()
 	{
+		$this->dropForeignKey('fk5', 'tbl_article');
 		$this->dropTable('tbl_article');
 	}
 

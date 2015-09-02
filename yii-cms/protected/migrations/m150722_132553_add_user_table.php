@@ -35,6 +35,7 @@ class m150722_132553_add_user_table extends CDbMigration
 
 	public function down()
 	{
+		$this->dropForeignKey('fk3', 'tbl_user');
 		$this->dropTable('tbl_user');
 	}
 

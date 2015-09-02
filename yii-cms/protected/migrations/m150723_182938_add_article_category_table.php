@@ -24,6 +24,8 @@ class m150723_182938_add_article_category_table extends CDbMigration
 
 	public function down()
 	{
+		$this->dropForeignKey('fk1', 'tbl_article_category');
+		$this->dropForeignKey('fk2', 'tbl_article_category');		
 		$this->dropTable('tbl_article_category');
 	}
 
