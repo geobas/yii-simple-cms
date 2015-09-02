@@ -12,6 +12,19 @@ $this->breadcrumbs=array(
 <h5><?php echo CHtml::link('Articles feed', Yii::app()->createUrl('site/feed')); ?></h5>
 <p><a href="<?php echo Yii::app()->homeUrl; ?>/articlesFeed.xml">Articles feed alias</a></p>
 
+<?php 
+
+// get first article
+// $article = Article::model()->first()->find(); // lazy loading
+
+// get latest article
+// $article = Article::model()->with('user')->latest()->find(); // eager loading
+
+// get recent articles
+// $articles = Article::model()->with('user')->recent()->findAll(); // eager loading
+
+?>
+
 <?php
 	$key = 'CMS.articles';
 	$dependency = array(

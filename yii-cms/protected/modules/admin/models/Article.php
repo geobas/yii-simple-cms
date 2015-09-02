@@ -227,4 +227,40 @@ class Article extends CActiveRecord
 		$time = date('l, F d, Y, g:i a', strtotime($date));
 		return $time;
 	}
+
+	/**
+	 * Define named scopes for returning the first and latest article
+	 * @return array array of Article scopes
+	 */
+	public function scopes()
+	{
+		return array(
+			'first'=>array(
+				'order'=>'t.create_time ASC',
+				'limit'=>1,				
+			),
+			'latest'=>array(
+				'order'=>'t.create_time DESC',
+				'limit'=>1,
+			),
+		);		
+	}
+
+	/**
+	 * Returns recent articles.
+	 * You can define how many articles to return.
+	 * @param  integer $limit number of articles to return
+	 * @return Article
+	 */
+	public function recent($limit = 5)
+	{
+		$this->getDbCriteria()->mergeWith(
+			array(
+				'order'=>'t.create_time DESC',
+				'limit'=>$limit,
+			)
+		);
+
+		return $this;
+	}
 }
