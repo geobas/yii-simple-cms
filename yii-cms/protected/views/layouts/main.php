@@ -5,6 +5,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="language" content="en">
 	
+	<link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/favicon.ico" type="image/x-icon" />
+	
 	<!-- blueprint CSS framework -->
 	<!--[if lt IE 8]>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection">
@@ -34,6 +36,14 @@
 		<div id="language-selector" style="float:right; margin:5px;">
 		    <?php $this->widget('application.components.widgets.LanguageSelector'); ?>
 		</div>		
+
+		<div id="search-form" style="float:right; margin-right:10px;">
+			<form method="get" action="<?php echo $this->createUrl('site/search'); ?>">
+				<input style="margin-top:1px" type="search" placeholder="search" id="term" name="term" value="<?php echo isset($_GET['term']) ? CHtml::encode($_GET['term']) : '' ; ?>" />
+				<?php echo TbHtml::submitButton('Search', array('color' => TbHtml::BUTTON_COLOR_PRIMARY, 'name' => 'search', 'value' => 'search', 'style' => 'float:right; margin-left:5px; margin-top:1px;')); ?>
+			</form>		
+		</div>
+
 	</div><!-- header -->
 
 	<div id="mainmenu">

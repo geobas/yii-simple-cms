@@ -13,6 +13,7 @@ return array(
 	'sourceLanguage'=>'en',
 	'language'=>'el',
 	// 'language'=>'el_gr', // this locale ID is not used anymore
+	'timeZone'=>'Europe/Athens',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -88,7 +89,6 @@ return array(
 				'<language:(en|el)>/<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 				'<language:(en|el)>/<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
 				'articlesfeed'=>array('site/feed', 'urlSuffix'=>'.xml', 'caseSensitive'=>false),
-
 			),
 		),		
 

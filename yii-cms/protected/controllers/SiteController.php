@@ -166,6 +166,34 @@ class SiteController extends Controller
 	}
 
 	/**
+	 * Searches for an article's title and returns the results
+	 */
+	public function actionSearch()
+	{
+		// import the models of admin module
+		Yii::import('application.modules.admin.models.*');
+	    
+		$dataProvider = new CActiveDataProvider('Article');
+		$criteria = new CDbCriteria();
+
+	    if ( !empty(trim(Yii::app()->request->getQuery('term'))) ) // search term is valid
+	    {
+			$term = trim(Yii::app()->request->getQuery('term'));
+			$criteria->compare('title', $term, true);
+			// $criteria->compare('attribute2', $term, true, 'OR');
+			$dataProvider->setCriteria($criteria);
+	    }
+	    else // search term not valid
+	    {
+	    	$dataProvider->setData(array());
+	    }
+
+	    $this->render('search',array(
+	      'dataProvider'=>$dataProvider,
+	    ));
+	}
+
+	/**
 	 * Displays a single article.
 	 * @param integer $id the ID of the article to be displayed
 	 */
