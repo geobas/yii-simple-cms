@@ -3,7 +3,7 @@
 /* @var $model Article */
 
 $this->breadcrumbs=array(
-	'Articles'=>array('index'),
+	'Articles'=>array('articles'),
 	$model->title,
 );
 
