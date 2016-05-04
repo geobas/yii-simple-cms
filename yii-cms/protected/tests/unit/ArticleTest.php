@@ -47,9 +47,9 @@ class ArticleTest extends CDbTestCase
 		$this->assertTrue($article->save(false));
 
 		// Read the record again to ensure the update worked
-		$updatedProject = Article::model()->findByPk($article->id);
-		$this->assertTrue($updatedProject instanceof Article);
-		$this->assertEquals($updatedArticleTitle, $updatedProject->title);		
+		$updatedArticle = Article::model()->findByPk($article->id);
+		$this->assertTrue($updatedArticle instanceof Article);
+		$this->assertEquals($updatedArticleTitle, $updatedArticle->title);		
 	}
 
 	public function testDelete()
@@ -58,7 +58,27 @@ class ArticleTest extends CDbTestCase
 		$savedArticleId = $article->id;
 		$this->assertTrue($article->delete());
 		$deletedArticle = Article::model()->findByPk($savedArticleId);
-		$this->assertEquals(NULL,$deletedArticle);		
+		$this->assertEquals(NULL, $deletedArticle);		
+	}
+
+	public function testArticleUserFname()
+	{
+		$article = $this->articles('article2');
+		$fname = $article->user->fname;
+		$this->assertEquals('geo', $fname);
+	}
+
+	public function testArticlePublicity()
+	{
+		$article = $this->articles('article3');
+		$this->assertEquals(0, $article->published);
+	}	
+
+	public function testArticleCategoryTitle()
+	{
+		$article = $this->articles('article1');
+		$category = $article->categories[0]->title;
+		$this->assertEquals('Dummy category title', $category);
 	}
 
 	public function testPublishedOptions()
@@ -114,6 +134,6 @@ class ArticleTest extends CDbTestCase
 		$articleId = $article->id;
 		$this->assertTrue($article->delete());
 		$deletedArticle = Article::model()->findByPk($articleId);
-		$this->assertEquals(NULL,$deletedArticle);
+		$this->assertEquals(NULL, $deletedArticle);
 	}*/
 }
