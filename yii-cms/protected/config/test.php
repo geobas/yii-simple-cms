@@ -9,9 +9,13 @@ return CMap::mergeArray(
 				'class'=>'system.test.CDbFixtureManager',
 			),
 			
-/*			'db'=>array(
-				'db'=>require(dirname(__FILE__).'/database.php'),
-			),*/
+			'db'=>array(
+				'connectionString' => 'mysql:host=localhost;dbname=CMS_test',
+				'emulatePrepare' => true,
+				'username' => 'root',
+				'password' => 'root',
+				'charset' => 'utf8',					
+			),
 			
 		),
 	)
