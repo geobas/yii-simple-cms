@@ -7,6 +7,13 @@ A simple CMS to startup your application
 3. Create a database named 'CMS' in your development environment.
 4. Run `protected/yiic migrate` from application's root folder.
 
+## Set up unit testing
+1. Create a database named 'CMS_test' in your development environment.
+2. Run `protected/yiic migrate --connectionID=CMStest` from application's root folder.
+
+## Run unit tests
+Run `phpunit unit` from application's test folder.
+
 ## Installed Extensions
 1. Yiistrap
 2. ExtCkeditor
