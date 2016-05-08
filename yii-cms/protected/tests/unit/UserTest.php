@@ -69,4 +69,59 @@ class UserTest extends CDbTestCase
 		$userRole = $user->role->type;
 		$this->assertEquals('staff', $userRole);
 	}
+
+	public function testUserIsGuest()
+	{
+		$this->assertTrue( Yii::app()->user->isGuest );
+	}
+
+	public function testSuccesfullLogin()
+	{
+		$identity = new UserIdentity('admin','admin');
+		$identity->authenticate();
+		
+		// supress error "session_regenerate_id(): Cannot regenerate session id - headers already sent"
+		$mockSession = $this->getMock('CHttpSession', array('regenerateID'));
+		Yii::app()->setComponent('session', $mockSession);	
+
+		Yii::app()->user->login($identity, 0);
+		echo "\n\nlogin()";		
+		$this->checkUser();
+
+		Yii::app()->user->logout();
+		Yii::app()->user->clearStates();
+		// unset($_SESSION);
+		echo "logout()";
+		$this->checkUser();		
+	}
+
+	public function testFailedLogin()
+	{
+		$identity = new UserIdentity('testadmin','12345');
+		$identity->authenticate();
+		
+		// supress error "session_regenerate_id(): Cannot regenerate session id - headers already sent"
+		$mockSession = $this->getMock('CHttpSession', array('regenerateID'));
+		Yii::app()->setComponent('session', $mockSession);	
+
+		Yii::app()->user->login($identity, 0);
+		echo "\n\nlogin()";		
+		$this->checkUser();
+
+		Yii::app()->user->logout();
+		echo "logout()";
+		$this->checkUser();		
+	}	
+
+    private function checkUser()
+    {
+        echo "\n\nStatus of current user:\n";
+        echo "--------------------------\n";
+        echo "User ID: ".Yii::app()->user->id."\n";
+        echo "User Name: ".Yii::app()->user->name."\n";
+        if (Yii::app()->user->isGuest)
+                echo "There is NO user logged in.\n\n";
+        else 
+                echo "The user is logged in.\n\n";
+    }	
 }

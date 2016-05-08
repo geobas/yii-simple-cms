@@ -98,6 +98,13 @@ class ArticleTest extends CDbTestCase
 		$this->assertTrue(in_array('Dummy category title', $options));
 	}
 
+	public function testRecentArticles()
+	{
+		$recent = Article::model()->with('user')->recent(3)->findAll();
+		$this->assertTrue(is_array($recent));
+		$this->assertEquals(3, count($recent));
+	}
+
 	/*public function testCRUD()
 	{
 		// Create a new article
