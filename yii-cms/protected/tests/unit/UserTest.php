@@ -63,11 +63,19 @@ class UserTest extends CDbTestCase
 		$this->assertEquals(NULL, $deletedUser);		
 	}
 
+	public function testUserRoleAssignment()
+	{
+		$user = $this->users('user1');
+		$user->role_id = 2;
+		$this->assertTrue($user->save(false));
+		$this->assertEquals('staff', $user->role->type);
+	}
+
 	public function testUserRole()
 	{
-		$user = $this->users('user2');
+		$user = $this->users('user1');
 		$userRole = $user->role->type;
-		$this->assertEquals('staff', $userRole);
+		$this->assertEquals('admin', $userRole);
 	}
 
 	public function testUserIsGuest()
@@ -77,14 +85,7 @@ class UserTest extends CDbTestCase
 
 	public function testSuccesfullLogin()
 	{
-		$identity = new UserIdentity('admin','admin');
-		$identity->authenticate();
-		
-		// supress error "session_regenerate_id(): Cannot regenerate session id - headers already sent"
-		$mockSession = $this->getMock('CHttpSession', array('regenerateID'));
-		Yii::app()->setComponent('session', $mockSession);	
-
-		Yii::app()->user->login($identity, 0);
+		$this->authenticateUser('admin','admin');
 		echo "\n\nlogin()";		
 		$this->checkUser();
 
@@ -97,21 +98,27 @@ class UserTest extends CDbTestCase
 
 	public function testFailedLogin()
 	{
-		$identity = new UserIdentity('testadmin','12345');
-		$identity->authenticate();
-		
-		// supress error "session_regenerate_id(): Cannot regenerate session id - headers already sent"
-		$mockSession = $this->getMock('CHttpSession', array('regenerateID'));
-		Yii::app()->setComponent('session', $mockSession);	
-
-		Yii::app()->user->login($identity, 0);
+		$this->authenticateUser('testadmin','12345');
 		echo "\n\nlogin()";		
 		$this->checkUser();
 
 		Yii::app()->user->logout();
+		Yii::app()->user->clearStates();
 		echo "logout()";
 		$this->checkUser();		
 	}	
+
+	private function authenticateUser($user, $pass)
+	{
+		$identity = new UserIdentity($user, $pass);
+		$identity->authenticate();    		
+
+		// supress error "session_regenerate_id(): Cannot regenerate session id - headers already sent"
+		$mockSession = $this->getMock('CHttpSession', array('regenerateID'));
+		Yii::app()->setComponent('session', $mockSession);			
+		
+		Yii::app()->user->login($identity, 0);		
+	}
 
     private function checkUser()
     {
@@ -124,4 +131,12 @@ class UserTest extends CDbTestCase
         else 
                 echo "The user is logged in.\n\n";
     }	
+
+    public function testLastLoginTime()
+    {
+		$identity = new UserIdentity('author', 'admin');
+		$identity->authenticate();    				
+		Yii::app()->user->login($identity, 0);		
+		$this->assertEquals(1462377941, Yii::app()->user->lastLoginTime);
+    }
 }
