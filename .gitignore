@@ -1,6 +1,7 @@
 #ignore vendor
 vendor/
 #ignore assets
-yii-cms/assets/
+yii-cms/assets/*
+!yii-cms/assets/.gitkeep
 #ignore log & cache content
 yii-cms/protected/runtime/
