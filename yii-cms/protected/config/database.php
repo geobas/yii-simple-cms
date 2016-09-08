@@ -4,10 +4,10 @@
 return array(
 	// 'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 	// uncomment the following lines to use a MySQL database
-	'connectionString' => ( getenv('HOST') ) ? getenv('HOST') : 'mysql:host=localhost;dbname=CMS',
+	'connectionString' => 'mysql://cmji8eb44361vmhl:k934rfw82d4wz32r@onnjomlc4vqc55fw.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/v4vdv2ru01azk2s9',
 	'emulatePrepare' => true,
 	'schemaCachingDuration' => 86400, // one day
-	'username' => ( getenv('USERNAME') ) ? getenv('USERNAME') : 'root',
-	'password' => ( getenv('PASSWORD') ) ? getenv('PASSWORD') : 'root',
+	'username' => 'cmji8eb44361vmhl',
+	'password' => 'k934rfw82d4wz32r',
 	'charset' => 'utf8',
 );
