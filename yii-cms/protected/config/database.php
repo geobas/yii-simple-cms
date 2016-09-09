@@ -1,10 +1,5 @@
 <?php
 
-$host = $_ENV("HOST");
-$dbname = $_ENV('DATABASE');
-$username = $_ENV('USERNAME');
-$password = $_ENV('PASSWORD');
-
 // This is the database connection configuration.
 return array(
 	// 'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
