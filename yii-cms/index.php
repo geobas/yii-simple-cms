@@ -1,14 +1,5 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-var_dump($_ENV);
-var_dump($_SESSION);
-var_dump(getenv('USERNAME'));
-var_dump(getenv('HOST'));
-exit;
-
 // change the following paths if necessary
 $yii=dirname(__FILE__).'/../vendor/yiisoft/yii/framework/yii.php';
 $config=dirname(__FILE__).'/protected/config/main.php';
