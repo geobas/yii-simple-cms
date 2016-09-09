@@ -1,9 +1,9 @@
 <?php
 
-$host = $_ENV("HOST");
-$dbname = $_ENV('DATABASE');
-$username = $_ENV('USERNAME');
-$password = $_ENV('PASSWORD');
+$host = {$_ENV("HOST")};
+$dbname = {$_ENV('DATABASE')};
+$username = {$_ENV('USERNAME')};
+$password = {$_ENV('PASSWORD')};
 
 // change the following paths if necessary
 $yii=dirname(__FILE__).'/../vendor/yiisoft/yii/framework/yii.php';
