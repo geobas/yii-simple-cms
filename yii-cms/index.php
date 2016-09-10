@@ -3,7 +3,7 @@
 // echo 111;
 var_dump($_ENV);
 echo "getenv " . getenv("HOST") . '<br>';
-echo "global " . $_ENV("HOST"); . '<br>';
+echo "global " . $_ENV("HOST") . '<br>';
 // echo 222;
 die();
 
