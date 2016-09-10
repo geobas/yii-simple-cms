@@ -2,6 +2,7 @@
 
 echo 111;
 var_dump($_ENV);
+var_dump(getenv("HOST"));
 echo $_ENV("HOST");
 echo 222;
 exit;
