@@ -1,6 +1,9 @@
 <?php
 
+echo 111;
 var_dump($_ENV);
+echo $_ENV("HOST");
+echo 222;
 exit;
 
 $host = {$_ENV("HOST")};
