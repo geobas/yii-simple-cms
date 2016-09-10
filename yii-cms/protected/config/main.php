@@ -154,7 +154,7 @@ return array(
 
 		    'mergeIfXhr' => true, //def:false, if true->attempts to merge the js files even if the request was xhr (if all other merging conditions are satisfied)
 
-		    'serverBaseUrl' => ' ', //can be optionally set here
+		    'serverBaseUrl' => 'http://localhost', //can be optionally set here
 		    'mergeAbove' => 1, //def:1, only "more than this value" files will be merged,
 		    'curlTimeOut' => 10, //def:10, see curl_setopt() doc
 		    'curlConnectionTimeOut' => 10, //def:10, see curl_setopt() doc
