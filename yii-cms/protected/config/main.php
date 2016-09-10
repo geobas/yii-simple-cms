@@ -22,7 +22,7 @@ return array(
 		'bootstrap' => dirname(__FILE__).'/../../../vendor/crisu83/yiistrap', // change this if necessary
 		'efeed' => dirname(__FILE__).'/../../../vendor/2amigos/efeed',
 		'eClientScript' => dirname(__FILE__).'/../../../vendor/muayyad-alsadi/yii-extended-clientscript',
-	),	
+	),
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -38,7 +38,7 @@ return array(
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		
+
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>false,
@@ -46,7 +46,7 @@ return array(
 			'ipFilters'=>array('127.0.0.1','::1'),
 			'generatorPaths' => array('vendor.crisu83.yiistrap.gii'),
 		),
-		'admin',		
+		'admin',
 	),
 
 	// application components
@@ -54,7 +54,7 @@ return array(
 
 		'user'=>array(
 			// enable cookie-based authentication
-			'allowAutoLogin'=>true,			
+			'allowAutoLogin'=>true,
 			// custom RBAC
 			'class' => 'WebUser',
 			'authTimeout' => 600,
@@ -77,20 +77,20 @@ return array(
             ),
         ),
 
-		// uncomment the following to enable URLs in path-format		
+		// uncomment the following to enable URLs in path-format
 		'urlManager'=>array(
 			'class'=>'application.components.UrlManager',
 			'urlFormat'=>'path',
 			'showScriptName'=>false,
 			'rules'=>array(
-            	'<language:(en|el)>/' => 'site/index',				
+            	'<language:(en|el)>/' => 'site/index',
 				'<language:(en|el)>/<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<language:(en|el)>/<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<language:(en|el)>/<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 				'<language:(en|el)>/<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
 				'articlesfeed'=>array('site/feed', 'urlSuffix'=>'.xml', 'caseSensitive'=>false),
 			),
-		),		
+		),
 
 		// database settings are configured in database.php
 		'db'=>require(dirname(__FILE__).'/database.php'),
@@ -119,14 +119,14 @@ return array(
 					'class'=>'CFileLogRoute',
 					'levels'=>'warning',
 					'logFile'=>'warningMessages.log',
-				),		
+				),
 
-				// uncomment the following to show log messages on web pages				
+				// uncomment the following to show log messages on web pages
 				array(
 					'class'=>'CWebLogRoute',
 					'levels'=>'warning',
 				),
-				
+
 			),
 		),
 
@@ -143,29 +143,29 @@ return array(
 			'class' => 'application.extensions.NLSClientScript.NLSClientScript',
 		    //'excludePattern' => '/\.tpl/i', //js regexp, files with matching paths won't be filtered is set to other than 'null'
 		    //'includePattern' => '/\.php/', //js regexp, only files with matching paths will be filtered if set to other than 'null'
-		 
+
 		    'mergeJs' => true, //def:true
 		    'compressMergedJs' => true, //def:false
-		 
+
 		    'mergeCss' => true, //def:true
 		    'compressMergedCss' => true, //def:false
-		 
+
 		    'mergeJsExcludePattern' => '/edit_area/', //won't merge js files with matching names
-		 
+
 		    'mergeIfXhr' => true, //def:false, if true->attempts to merge the js files even if the request was xhr (if all other merging conditions are satisfied)
-		 
-		    'serverBaseUrl' => 'http://localhost', //can be optionally set here
+
+		    'serverBaseUrl' => '/', //can be optionally set here
 		    'mergeAbove' => 1, //def:1, only "more than this value" files will be merged,
 		    'curlTimeOut' => 10, //def:10, see curl_setopt() doc
 		    'curlConnectionTimeOut' => 10, //def:10, see curl_setopt() doc
-		 
-		    'appVersion'=>'1.0', //if set, it will be appended to the urls of the merged scripts/css			
+
+		    'appVersion'=>'1.0', //if set, it will be appended to the urls of the merged scripts/css
 			'coreScriptPosition' => CClientScript::POS_END,
 		),
 
 		'coreMessages'=>array(
             'basePath'=>'protected/messages',
-        ),		
+        ),
 
 	),
 
@@ -175,6 +175,6 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 		'salt' => '!#@SyR4t|\#~L#$^',
-    	'languages'=>array('en'=>'English', 'el'=>'Ελληνικά'),		
+    	'languages'=>array('en'=>'English', 'el'=>'Ελληνικά'),
 	),
 );
