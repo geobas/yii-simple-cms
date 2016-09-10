@@ -1,5 +1,8 @@
 <?php
 
+var_dump($_ENV);
+exit;
+
 $host = {$_ENV("HOST")};
 $dbname = {$_ENV('DATABASE')};
 $username = {$_ENV('USERNAME')};
