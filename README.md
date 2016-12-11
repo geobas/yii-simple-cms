@@ -12,7 +12,8 @@ A simple CMS to startup your application
 2. Run `protected/yiic migrate --connectionID=CMStest` from application's root folder.
 
 ## Run unit tests
-Run `phpunit unit` from application's test folder.
+1. Install [entr](http://entrproject.org) to automatically run tests when something changes
+2. Run `find ../ | entr -c phpunit unit` from application's test folder.
 
 ## Installed Extensions
 1. Yiistrap
